@@ -27,8 +27,8 @@
                 <span class="brand-tagline">Atelier &bull; 2026–2027</span>
             </a>
 
-            <!-- 4 CORE NAVIGATION OPTIONS + DESIGN HUB -->
-            <nav>
+            <!-- 4 CORE NAVIGATION OPTIONS + DESIGN HUB (DESKTOP) -->
+            <nav class="desktop-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="#hero" class="active">Home</a></li>
                     <li class="nav-item"><a href="#all-designs">All Design</a></li>
@@ -38,9 +38,30 @@
                 </ul>
             </nav>
 
-            <a href="studio.html" class="nav-action-btn" title="Open Full 3D CAD Studio">
-                3D CAD Studio &rarr;
-            </a>
+            <div class="header-right-actions">
+                <a href="studio.html" class="nav-action-btn desktop-only" title="Open Full 3D CAD Studio">
+                    3D CAD Studio &rarr;
+                </a>
+
+                <!-- Mobile Hamburger Toggle Button -->
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open Navigation">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Drawer -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+            <nav class="mobile-drawer-links">
+                <a href="#hero" class="mobile-nav-item active">Home</a>
+                <a href="#all-designs" class="mobile-nav-item">All Design</a>
+                <a href="#view-3d" class="mobile-nav-item">3D Virtual Runway</a>
+                <a href="#community-hub" class="mobile-nav-item">Design Hub &amp; Showcase</a>
+                <a href="#contact" class="mobile-nav-item">Contact</a>
+                <a href="studio.html" class="mobile-nav-item mobile-cta-item">Open 3D CAD Studio &rarr;</a>
+            </nav>
         </div>
     </header>
 

@@ -1232,9 +1232,16 @@ body {
 }
 
 @media (max-width: 768px) {
+    .portfolio-header { padding: 0 16px; height: 58px; }
+    .header-inner { padding: 0; }
+    .brand-sub { display: none !important; }
+    .brand-name { font-size: 16px; }
     .nav-links { display: none; }
     .form-row.dual { grid-template-columns: 1fr; }
     .sketches-grid { grid-template-columns: 1fr; }
     .hero-stats-ribbon { flex-direction: column; border-radius: var(--radius-md); }
     .stat-sep { display: none; }
+    .hero-container { padding: 80px 16px 40px; }
+    .section-wrap { padding: 60px 16px; }
+    .studio-link-btn { padding: 7px 12px; font-size: 10px; }
 }

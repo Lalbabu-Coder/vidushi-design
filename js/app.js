@@ -690,6 +690,105 @@ document.addEventListener('DOMContentLoaded', () => {
         sketchApplyBtn.addEventListener('click', () => sketchpad.applyToStudio());
     }
 
+    // ==========================================
+    // MOBILE RESPONSIVE DRAWERS & TABS
+    // ==========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const headerActions = document.getElementById('header-actions');
+    if (mobileMenuBtn && headerActions) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            headerActions.classList.toggle('mobile-open');
+            mobileMenuBtn.innerHTML = headerActions.classList.contains('mobile-open') ? '✕' : '☰';
+        });
+
+        // Close when tapping outside
+        document.addEventListener('click', (e) => {
+            if (!headerActions.contains(e.target) && e.target !== mobileMenuBtn) {
+                headerActions.classList.remove('mobile-open');
+                mobileMenuBtn.innerHTML = '☰';
+            }
+        });
+    }
+
+    const atelierSidebar = document.getElementById('atelier-sidebar');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+    const sidebarScroll = document.getElementById('sidebar-scroll');
+    const drawerTitle = document.getElementById('drawer-active-title');
+
+    const openDrawer = (title = 'Studio Controls', scrollTarget = null) => {
+        if (!atelierSidebar) return;
+        atelierSidebar.classList.add('drawer-open');
+        if (drawerTitle) drawerTitle.innerText = title;
+        if (scrollTarget && sidebarScroll) {
+            setTimeout(() => {
+                const elem = document.querySelector(scrollTarget);
+                if (elem) elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    };
+
+    const closeDrawer = () => {
+        if (atelierSidebar) atelierSidebar.classList.remove('drawer-open');
+        document.querySelectorAll('.m-nav-tab').forEach(t => t.classList.remove('active'));
+        const tab3d = document.getElementById('tab-3d-view');
+        if (tab3d) tab3d.classList.add('active');
+    };
+
+    if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', closeDrawer);
+    }
+
+    const tab3dView = document.getElementById('tab-3d-view');
+    const tabSilhouettes = document.getElementById('tab-silhouettes');
+    const tabUpload = document.getElementById('tab-upload');
+    const tabFabrics = document.getElementById('tab-fabrics');
+    const tabAllControls = document.getElementById('tab-all-controls');
+
+    if (tab3dView) {
+        tab3dView.addEventListener('click', () => {
+            closeDrawer();
+            showToast('3D Interactive Runway Mode', '👁️');
+        });
+    }
+
+    if (tabSilhouettes) {
+        tabSilhouettes.addEventListener('click', () => {
+            document.querySelectorAll('.m-nav-tab').forEach(t => t.classList.remove('active'));
+            tabSilhouettes.classList.add('active');
+            openDrawer('Couture Silhouettes', '.studio-section:nth-of-type(1)');
+        });
+    }
+
+    if (tabUpload) {
+        tabUpload.addEventListener('click', () => {
+            document.querySelectorAll('.m-nav-tab').forEach(t => t.classList.remove('active'));
+            tabUpload.classList.add('active');
+            openDrawer('Upload Sketches', '.studio-section:nth-of-type(2)');
+        });
+    }
+
+    if (tabFabrics) {
+        tabFabrics.addEventListener('click', () => {
+            document.querySelectorAll('.m-nav-tab').forEach(t => t.classList.remove('active'));
+            tabFabrics.classList.add('active');
+            openDrawer('Luxury Fabrics & Palette', '.studio-section:nth-of-type(3)');
+        });
+    }
+
+    if (tabAllControls) {
+        tabAllControls.addEventListener('click', () => {
+            document.querySelectorAll('.m-nav-tab').forEach(t => t.classList.remove('active'));
+            tabAllControls.classList.add('active');
+            openDrawer('All Studio Controls');
+        });
+    }
+
+    // Auto-update 3D canvas on mobile resize / orientation change
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => studio.onWindowResize(), 250);
+    });
+
     // Welcome greeting
     setTimeout(() => {
         showToast('Welcome, Vidushi! Ready to craft your Haute Couture vision? ✨', '👗');

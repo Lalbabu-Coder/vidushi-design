@@ -485,8 +485,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 7. SMOOTH SCROLLING & ACTIVE NAV LINKS
+    // 7. SMOOTH SCROLLING, ACTIVE NAV & MOBILE HAMBURGER
     // ==========================================
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+
+    if (mobileNavToggle && mobileNavDrawer) {
+        mobileNavToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileNavToggle.classList.toggle('open');
+            mobileNavDrawer.classList.toggle('open');
+        });
+
+        // Close on clicking links
+        document.querySelectorAll('.mobile-nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                mobileNavToggle.classList.remove('open');
+                mobileNavDrawer.classList.remove('open');
+            });
+        });
+
+        // Close on clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNavDrawer.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+                mobileNavToggle.classList.remove('open');
+                mobileNavDrawer.classList.remove('open');
+            }
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
