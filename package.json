@@ -1,0 +1,11 @@
+{
+  "name": "atelier-vidushi",
+  "version": "1.0.0",
+  "description": "Atelier Vidushi - Interactive 3D Fashion Design Studio & Garment Visualizer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Created for Vidushi",
+  "license": "MIT"
+}

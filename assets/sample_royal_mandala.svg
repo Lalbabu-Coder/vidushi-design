@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#0b2b1d"/>
+  <defs>
+    <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff5cc"/>
+      <stop offset="60%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#99771f"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(400,400)">
+    <circle r="360" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="8,6"/>
+    <circle r="340" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <!-- Petals -->
+    <g transform="rotate(0.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(22.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(45.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(67.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(90.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(112.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(135.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(157.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(180.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(202.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(225.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(247.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(270.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(292.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(315.0)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <g transform="rotate(337.5)">
+      <path d="M 0,-80 C 45,-160 70,-260 0,-330 C -70,-260 -45,-160 0,-80 Z" fill="rgba(212,175,55,0.22)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <circle cx="0" cy="-280" r="12" fill="#d4af37"/>
+      <circle cx="0" cy="-280" r="6" fill="#8b1e2f"/>
+    </g>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(0.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(11.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(22.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(33.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(45.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(56.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(67.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(78.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(90.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(101.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(112.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(123.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(135.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(146.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(157.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(168.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(180.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(191.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(202.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(213.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(225.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(236.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(247.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(258.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(270.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(281.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(292.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(303.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(315.0)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(326.25)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(337.5)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <line x1="0" y1="-80" x2="0" y2="-120" transform="rotate(348.75)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <circle r="80" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
+    <circle r="50" fill="url(#goldGrad)"/>
+    <circle r="25" fill="#8b1e2f"/>
+  </g>
+</svg>

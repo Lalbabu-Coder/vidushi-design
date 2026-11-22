@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATELIER VIDUSHI • 3D Haute Couture Design & CAD Studio</title>
+    
+    <!-- Google Fonts for Luxury Editorial Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="camera-flash-overlay"></div>
+    <div id="toast" class="toast"></div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="atelier-wrapper">
+        <!-- TOP LUXURY HEADER -->
+        <header class="atelier-header">
+            <div class="header-brand">
+                <div class="brand-crest">⚜️</div>
+                <div class="brand-text">
+                    <h1>ATELIER VIDUSHI</h1>
+                    <span class="brand-sub">HAUTE COUTURE 3D RUNWAY & PROFESSIONAL CAD ATELIER</span>
+                </div>
+                <div class="vidushi-badge">
+                    <span class="badge-dot"></span>
+                    <span>Exclusive Atelier for Vidushi</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <a href="portfolio.html" class="nav-btn" style="text-decoration:none">
+                    <span class="btn-icon">🌐</span>
+                    <span>Vidushi's Portfolio</span>
+                </a>
+                <button class="nav-btn" onclick="openModal('sketch-pro-modal')">
+                    <span class="btn-icon">📐</span>
+                    <span>Pro Sketch Studio</span>
+                </button>
+                <button class="nav-btn" onclick="openModal('techpack-modal')">
+                    <span class="btn-icon">📄</span>
+                    <span>Fashion Tech Pack</span>
+                </button>
+                <button class="nav-btn" onclick="openModal('sketchpad-modal')">
+                    <span class="btn-icon">🎨</span>
+                    <span>2D Canvas</span>
+                </button>
+                <button class="nav-btn" onclick="openModal('inspiration-modal')">
+                    <span class="btn-icon">💡</span>
+                    <span>Inspiration</span>
+                </button>
+                <button class="nav-btn" onclick="openModal('lookbook-modal')">
+                    <span class="btn-icon">📖</span>
+                    <span>Lookbook</span>
+                </button>
+                <button class="nav-btn highlight-btn" id="capture-snapshot-btn">
+                    <span class="btn-icon">📸</span>
+                    <span>Runway Snapshot</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN WORKSPACE -->
+        <main class="atelier-main">
+            <!-- 3D VIEWPORT CONTAINER -->
+            <div class="viewport-wrapper">
+                <div id="studio-viewport" class="viewport-canvas"></div>
+
+                <!-- FLOATING 3D CONTROLS (TOP) -->
+                <div class="floating-controls-top">
+                    <!-- Camera Presets -->
+                    <div class="control-pill camera-presets">
+                        <span class="pill-label">Camera:</span>
+                        <button class="cam-btn active" data-cam="full">Full Look</button>
+                        <button class="cam-btn" data-cam="bodice">Bodice</button>
+                        <button class="cam-btn" data-cam="skirt">Skirt Hem</button>
+                        <button class="cam-btn" data-cam="back">Back 180°</button>
+                    </div>
+
+                    <!-- Lighting Preset Pills -->
+                    <div class="control-pill lighting-presets">
+                        <span class="pill-label">Mood:</span>
+                        <button class="light-btn active" data-light="runway">Paris Runway</button>
+                        <button class="light-btn" data-light="daylight">Daylight</button>
+                        <button class="light-btn" data-light="sunset">Sunset Gold</button>
+                        <button class="light-btn" data-light="neon">Met Gala Neon</button>
+                    </div>
+
+                    <!-- CAD & Technical View Pill -->
+                    <div class="control-pill mode-pill">
+                        <button class="mode-toggle-btn" id="cad-mode-btn">
+                            <span>📐 CAD Wireframe</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FLOATING 3D CONTROLS (BOTTOM) -->
+                <div class="floating-controls-bottom">
+                    <!-- Turntable, Wind, & Mannequin Toggles -->
+                    <div class="control-pill toggles-pill">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="turntable-toggle" checked>
+                            <span class="slider round"></span>
+                            <span class="toggle-text">360° Spin</span>
+                        </label>
+                        <span class="pill-divider"></span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="wind-toggle" checked>
+                            <span class="slider round"></span>
+                            <span class="toggle-text">Runway Breeze</span>
+                        </label>
+                        <span class="pill-divider"></span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="mannequin-toggle" checked>
+                            <span class="slider round"></span>
+                            <span class="toggle-text">Mannequin Stand</span>
+                        </label>
+                    </div>
+
+                    <!-- Viewport Watermark & Instructions -->
+                    <div class="studio-watermark">
+                        <span>✦ Rotate: Left-drag • Zoom: Scroll • Pan: Right-drag ✦</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT DESIGN STUDIO CONTROL PANEL -->
+            <aside class="atelier-sidebar">
+                <div class="sidebar-scroll">
+                    <!-- SECTION 1: SILHOUETTE SELECTOR -->
+                    <section class="studio-section">
+                        <div class="section-header">
+                            <span class="section-num">01</span>
+                            <h3>Couture Silhouettes</h3>
+                        </div>
+                        <div class="garment-grid">
+                            <button class="garment-btn active" data-garment="eveningGown">
+                                <span class="garment-icon">👗</span>
+                                <div class="garment-details">
+                                    <span class="garment-name">Royal Evening Gown</span>
+                                    <span class="garment-desc">Corset bodice with organic rippling skirt</span>
+                                </div>
+                            </button>
+                            <button class="garment-btn" data-garment="royalSaree">
+                                <span class="garment-icon">🥻</span>
+                                <div class="garment-details">
+                                    <span class="garment-name">Royal Saree & Draped Gown</span>
+                                    <span class="garment-desc">Pleated shoulder pallu with gold border</span>
+                                </div>
+                            </button>
+                            <button class="garment-btn" data-garment="cocktailWrap">
+                                <span class="garment-icon">✨</span>
+                                <div class="garment-details">
+                                    <span class="garment-name">Cocktail Wrap Dress</span>
+                                    <span class="garment-desc">Asymmetric one-shoulder & tulip hem</span>
+                                </div>
+                            </button>
+                            <button class="garment-btn" data-garment="coutureBlazer">
+                                <span class="garment-icon">🧥</span>
+                                <div class="garment-details">
+                                    <span class="garment-name">Architectural Blazer</span>
+                                    <span class="garment-desc">Sharp lapels & tailored pencil skirt</span>
+                                </div>
+                            </button>
+                            <button class="garment-btn" data-garment="modernStreet">
+                                <span class="garment-icon">👚</span>
+                                <div class="garment-details">
+                                    <span class="garment-name">Streetwear Designer Tee</span>
+                                    <span class="garment-desc">Boxy silk tee & pleated A-line skirt</span>
+                                </div>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2: PRO SKETCH UPLOAD & CROQUIS PLACEMENT -->
+                    <section class="studio-section">
+                        <div class="section-header">
+                            <span class="section-num">02</span>
+                            <h3>Upload Fashion Sketches</h3>
+                        </div>
+                        
+                        <!-- Upload Dropzone -->
+                        <div class="upload-dropzone" id="upload-dropzone" onclick="document.getElementById('design-upload').click()">
+                            <input type="file" id="design-upload" accept="image/*" style="display:none">
+                            <div class="dropzone-content">
+                                <div class="upload-icon">🎨</div>
+                                <h4>Upload Vidushi's Sketch</h4>
+                                <p>Drag & drop paper sketch, iPad drawing, or fabric swatch (PNG, JPG, SVG)</p>
+                                <span class="upload-badge">✨ Auto Paper Clean-up</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Action Buttons for Sketching -->
+                        <div class="sketch-quick-actions">
+                            <button class="quick-act-btn" onclick="openModal('sketch-pro-modal')">
+                                <span>📐 Open Pro Placement Studio</span>
+                            </button>
+                            <button class="quick-act-btn secondary" id="trigger-webcam-btn">
+                                <span>📷 Scan Physical Notebook</span>
+                            </button>
+                        </div>
+
+                        <!-- Placement Zone Selector -->
+                        <div class="placement-selector-wrap">
+                            <label class="input-label">Garment Placement Zone:</label>
+                            <div class="placement-chips-grid">
+                                <button class="placement-btn active" data-placement="all_over">
+                                    <span>🌐 All-over Repeat</span>
+                                </button>
+                                <button class="placement-btn" data-placement="bodice">
+                                    <span>🎯 Bodice Motif</span>
+                                </button>
+                                <button class="placement-btn" data-placement="skirt_border">
+                                    <span>🌸 Skirt Border</span>
+                                </button>
+                                <button class="placement-btn" data-placement="shoulder">
+                                    <span>⚜️ Shoulder Accent</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sample Couture Patterns -->
+                        <div class="pattern-presets-wrap">
+                            <label class="input-label">Or Test High-Fashion Preset Prints:</label>
+                            <div class="pattern-chips-grid">
+                                <button class="pattern-preset-btn active" data-pattern="mughal" data-name="Mughal Gold Embroidery">
+                                    <span>👑 Mughal Gold</span>
+                                </button>
+                                <button class="pattern-preset-btn" data-pattern="marble" data-name="Liquid Silk Marble">
+                                    <span>🌊 Silk Marble</span>
+                                </button>
+                                <button class="pattern-preset-btn" data-pattern="houndstooth" data-name="Parisian Houndstooth">
+                                    <span>🏁 Houndstooth</span>
+                                </button>
+                                <button class="pattern-preset-btn" data-pattern="celestial" data-name="Celestial Starry Foil">
+                                    <span>✨ Celestial Gold</span>
+                                </button>
+                                <button class="pattern-preset-btn" data-pattern="floral" data-name="Watercolor Blossom">
+                                    <span>🌸 Floral Bloom</span>
+                                </button>
+                                <button class="pattern-preset-btn" data-pattern="artdeco" data-name="Art Deco Geometric">
+                                    <span>📐 Art Deco</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3: FABRIC FINISH & TEXTILE TYPE -->
+                    <section class="studio-section">
+                        <div class="section-header">
+                            <span class="section-num">03</span>
+                            <h3>Fabric & Textile Material</h3>
+                        </div>
+                        <div class="fabric-buttons-grid">
+                            <button class="fabric-btn active" data-fabric="silk">
+                                <span>Silk Satin</span>
+                                <small>High Sheen</small>
+                            </button>
+                            <button class="fabric-btn" data-fabric="velvet">
+                                <span>Rich Velvet</span>
+                                <small>Plush Matte</small>
+                            </button>
+                            <button class="fabric-btn" data-fabric="organza">
+                                <span>Sheer Organza</span>
+                                <small>Translucent</small>
+                            </button>
+                            <button class="fabric-btn" data-fabric="brocade">
+                                <span>Gold Brocade</span>
+                                <small>Metallic Lurex</small>
+                            </button>
+                            <button class="fabric-btn" data-fabric="linen">
+                                <span>Crisp Linen</span>
+                                <small>Natural Cotton</small>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 4: COLOR PALETTE & TINT -->
+                    <section class="studio-section">
+                        <div class="section-header">
+                            <span class="section-num">04</span>
+                            <h3>Fabric Base Tint (Pantone)</h3>
+                        </div>
+                        <div class="color-picker-row">
+                            <div class="custom-color-wrap">
+                                <input type="color" id="base-color-picker" value="#d4af37">
+                                <span id="color-hex-label">#D4AF37</span>
+                            </div>
+                            <div class="palette-swatches">
+                                <button class="color-swatch active" style="background:#d4af37" data-color="#d4af37" title="Champagne Gold"></button>
+                                <button class="color-swatch" style="background:#0b3b24" data-color="#0b3b24" title="Emerald Velvet"></button>
+                                <button class="color-swatch" style="background:#701222" data-color="#701222" title="Royal Burgundy"></button>
+                                <button class="color-swatch" style="background:#0b0f19" data-color="#0b0f19" title="Midnight Noir"></button>
+                                <button class="color-swatch" style="background:#e8b4b8" data-color="#e8b4b8" title="Rose Quartz"></button>
+                                <button class="color-swatch" style="background:#fcf8f5" data-color="#fcf8f5" title="Ivory Pearl"></button>
+                                <button class="color-swatch" style="background:#4b2075" data-color="#4b2075" title="Imperial Violet"></button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 5: PATTERN DRAPING & TILING -->
+                    <section class="studio-section">
+                        <div class="section-header">
+                            <span class="section-num">05</span>
+                            <h3>Pattern Draping & Scale</h3>
+                        </div>
+                        <div class="sliders-wrap">
+                            <div class="slider-group">
+                                <div class="slider-info">
+                                    <label for="pattern-scale">Texture Scale / Repeat</label>
+                                    <span id="scale-val">2.0x</span>
+                                </div>
+                                <input type="range" id="pattern-scale" min="0.5" max="8.0" step="0.25" value="2.0">
+                            </div>
+
+                            <div class="slider-group">
+                                <div class="slider-info">
+                                    <label for="pattern-rotation">Bias Angle / Rotation</label>
+                                    <span id="rotation-val">0°</span>
+                                </div>
+                                <input type="range" id="pattern-rotation" min="0" max="360" step="5" value="0">
+                            </div>
+
+                            <div class="slider-row-dual">
+                                <div class="slider-group">
+                                    <div class="slider-info">
+                                        <label for="pattern-offset-x">Shift X</label>
+                                    </div>
+                                    <input type="range" id="pattern-offset-x" min="-1" max="1" step="0.05" value="0">
+                                </div>
+                                <div class="slider-group">
+                                    <div class="slider-info">
+                                        <label for="pattern-offset-y">Shift Y</label>
+                                    </div>
+                                    <input type="range" id="pattern-offset-y" min="-1" max="1" step="0.05" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 6: ACTIONS -->
+                    <section class="studio-section action-section">
+                        <button class="save-lookbook-cta" id="save-to-lookbook-btn">
+                            <span class="cta-icon">💎</span>
+                            <span>Save to Vidushi's Lookbook</span>
+                        </button>
+                        <button class="techpack-cta-btn" onclick="openModal('techpack-modal')">
+                            <span class="cta-icon">📄</span>
+                            <span>Generate Fashion Tech Pack</span>
+                        </button>
+                    </section>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- MODAL 1: PRO SKETCH & CROQUIS PLACEMENT STUDIO -->
+    <div class="modal-overlay" id="sketch-pro-modal">
+        <div class="modal-dialog sketch-pro-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2>⚜️ Professional Fashion Sketch Studio</h2>
+                    <p>Clean paper background, extract fine line art, and visually position sketches on 2D croquis.</p>
+                </div>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+
+            <div class="modal-body pro-sketch-body">
+                <div class="pro-sketch-layout">
+                    <!-- Left: Interactive 2D Croquis Mannequin -->
+                    <div class="croquis-container-wrap">
+                        <h4>2D CROQUIS PLACEMENT MAPPER</h4>
+                        <p class="croquis-sub">Drag box to adjust sketch location on 3D dress</p>
+                        <canvas id="croquis-placement-canvas"></canvas>
+                    </div>
+
+                    <!-- Right: Paper Cleaning & Filter Controls -->
+                    <div class="sketch-filters-wrap">
+                        <h4>PAPER PROCESSING & BLENDING</h4>
+                        
+                        <div class="filter-option-group">
+                            <label class="input-label">Paper Clean-up Mode:</label>
+                            <div class="blend-mode-pills">
+                                <button class="blend-btn active" data-blend="multiply">
+                                    <strong>Transparent Paper</strong>
+                                    <small>Blends ink onto fabric</small>
+                                </button>
+                                <button class="blend-btn" data-blend="extract_lines">
+                                    <strong>Extract Lines</strong>
+                                    <small>Crisp line art / stencil</small>
+                                </button>
+                                <button class="blend-btn" data-blend="watercolor">
+                                    <strong>Watercolor Wash</strong>
+                                    <small>Soft translucent gradient</small>
+                                </button>
+                                <button class="blend-btn" data-blend="full_artwork">
+                                    <strong>Full Artwork</strong>
+                                    <small>Standard photograph</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Contrast & Threshold -->
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Paper Line Contrast</label>
+                                <span id="contrast-val">1.25x</span>
+                            </div>
+                            <input type="range" id="sketch-contrast" min="0.8" max="2.5" step="0.05" value="1.25">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Line Extraction Threshold</label>
+                                <span id="threshold-val">180</span>
+                            </div>
+                            <input type="range" id="sketch-threshold" min="80" max="230" step="5" value="180">
+                        </div>
+
+                        <!-- Line Tint Color -->
+                        <div class="line-tint-row">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="tint-toggle">
+                                <span class="slider round"></span>
+                                <span class="toggle-text">Tint Lines (Gold / Custom)</span>
+                            </label>
+                            <input type="color" id="line-tint-picker" value="#d4af37">
+                        </div>
+
+                        <!-- Live Webcam Scanner Box -->
+                        <div class="webcam-box" id="webcam-box" style="display:none">
+                            <video id="webcam-feed" playsinline autoplay muted></video>
+                            <div class="webcam-actions">
+                                <button class="webcam-capture-btn" id="snap-webcam-btn">📸 Snap Sketchbook Page</button>
+                                <button class="webcam-cancel-btn" id="stop-webcam-btn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-secondary-btn" id="open-webcam-modal-btn">📷 Scan with Camera</button>
+                <button class="modal-cancel-btn close-modal-btn">Close</button>
+                <button class="modal-primary-btn" id="apply-pro-sketch-btn">✨ Apply to 3D Garment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: FASHION TECH PACK & SPEC SHEET -->
+    <div class="modal-overlay" id="techpack-modal">
+        <div class="modal-dialog techpack-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2>📄 Haute Couture Fashion Tech Pack</h2>
+                    <p>Production specifications, measurements, fabric details, and high-fashion client dossier.</p>
+                </div>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div id="techpack-container">
+                    <!-- Populated dynamically by techpack.js -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-cancel-btn close-modal-btn">Close</button>
+                <button class="modal-primary-btn" id="print-techpack-btn">🖨️ Print / Save PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: 2D SKETCHPAD STUDIO -->
+    <div class="modal-overlay" id="sketchpad-modal">
+        <div class="modal-dialog sketchpad-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2>⚜️ Vidushi's Pattern Sketchpad</h2>
+                    <p>Draw your custom prints, embroidery, and motifs directly into 3D!</p>
+                </div>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+
+            <div class="sketchpad-body">
+                <!-- Toolbar -->
+                <div class="sketch-toolbar">
+                    <div class="tool-item">
+                        <label>Color:</label>
+                        <input type="color" id="sketch-color" value="#d4af37">
+                    </div>
+                    <div class="tool-item">
+                        <label>Brush Size:</label>
+                        <input type="range" id="sketch-brush-size" min="1" max="40" value="6">
+                    </div>
+                    <div class="tool-item">
+                        <label>Symmetry:</label>
+                        <select id="sketch-symmetry">
+                            <option value="none">Freehand</option>
+                            <option value="mirrorX">Mirror Symmetry</option>
+                            <option value="mandala4">4-Fold Mandala</option>
+                            <option value="mandala8">8-Fold Kaleidoscope</option>
+                        </select>
+                    </div>
+                    <button class="sketch-btn" id="sketch-eraser-btn">🧹 Eraser</button>
+                    <button class="sketch-btn" id="sketch-undo-btn">↩ Undo</button>
+                    <button class="sketch-btn" id="sketch-clear-btn">🗑 Clear</button>
+                </div>
+
+                <!-- Canvas Area -->
+                <div class="sketch-canvas-container">
+                    <canvas id="sketchpad-canvas"></canvas>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-cancel-btn close-modal-btn">Cancel</button>
+                <button class="modal-primary-btn" id="sketch-apply-btn">✨ Apply Design to 3D Outfit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: VIDUSHI'S LOOKBOOK -->
+    <div class="modal-overlay" id="lookbook-modal">
+        <div class="modal-dialog lookbook-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2>📖 Vidushi's Haute Couture Lookbook</h2>
+                    <p>Your saved fashion collection & custom 3D runway designs.</p>
+                </div>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="lookbook-grid" id="lookbook-grid">
+                    <!-- Populated dynamically by lookbook.js -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-cancel-btn close-modal-btn">Close Lookbook</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: FASHION INSPIRATION ENGINE -->
+    <div class="modal-overlay" id="inspiration-modal">
+        <div class="modal-dialog inspiration-dialog">
+            <div class="modal-header">
+                <div>
+                    <h2>💡 Haute Couture Inspiration Generator</h2>
+                    <p>Creative design briefs, silhouettes & color stories to inspire your next masterpiece.</p>
+                </div>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="inspiration-card">
+                    <h3 id="insp-title">Midnight Versailles Masquerade</h3>
+                    <p class="insp-vibe" id="insp-vibe">Opulent baroque drama with gilded embroidery and deep velvet shadows.</p>
+                    
+                    <div class="insp-meta-row">
+                        <div class="insp-meta-item">
+                            <span class="meta-label">Silhouette:</span>
+                            <span class="meta-val" id="insp-silhouette">Flared Evening Gown</span>
+                        </div>
+                        <div class="insp-meta-item">
+                            <span class="meta-label">Fabric Recommendation:</span>
+                            <span class="meta-val" id="insp-fabric">Velvet or Metallic Brocade</span>
+                        </div>
+                    </div>
+
+                    <div class="insp-palette-section">
+                        <span class="meta-label">Curated Color Story:</span>
+                        <div class="insp-palette-chips" id="insp-palette">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="modal-secondary-btn" id="get-inspiration-btn">🎲 New Concept</button>
+                <button class="modal-primary-btn" id="apply-inspiration-btn">✨ Apply to Studio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/patterns.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/sketch-uploader.js"></script>
+    <script src="js/techpack.js"></script>
+    <script src="js/sketchpad.js"></script>
+    <script src="js/lookbook.js"></script>
+    <script src="js/inspiration.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

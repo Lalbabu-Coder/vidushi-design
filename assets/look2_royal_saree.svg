@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <radialGradient id="bgGlow2" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#241419"/>
+      <stop offset="100%" stop-color="#0a0809"/>
+    </radialGradient>
+    <linearGradient id="goldText2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0c2"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#8a6e1d"/>
+    </linearGradient>
+    <linearGradient id="rubyVelvet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#701222"/>
+      <stop offset="70%" stop-color="#450813"/>
+      <stop offset="100%" stop-color="#200308"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgGlow2)"/>
+  <circle cx="300" cy="380" r="280" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="1.5"/>
+  
+  <g transform="translate(300, 100)">
+    <!-- Head / Neck -->
+    <ellipse cx="0" cy="40" rx="20" ry="26" fill="#141418" stroke="url(#goldText2)" stroke-width="2"/>
+    <path d="M -8,66 L 8,66 L 14,92 L -14,92 Z" fill="#141418" stroke="url(#goldText2)" stroke-width="1.5"/>
+    <!-- Choli Blouse -->
+    <path d="M -55,110 L 55,110 L 40,180 L -40,180 Z" fill="url(#rubyVelvet)" stroke="url(#goldText2)" stroke-width="2"/>
+    <!-- Pleated Saree Skirt -->
+    <path d="M -36,230 L 36,230 L 80,620 C 30,635 -30,635 -80,620 Z" fill="url(#rubyVelvet)" stroke="url(#goldText2)" stroke-width="2.5"/>
+    <!-- Pleat lines -->
+    <line x1="-12" y1="230" x2="-25" y2="625" stroke="url(#goldText2)" stroke-width="1.5"/>
+    <line x1="-4" y1="230" x2="-8" y2="628" stroke="url(#goldText2)" stroke-width="2"/>
+    <line x1="4" y1="230" x2="8" y2="628" stroke="url(#goldText2)" stroke-width="2"/>
+    <line x1="12" y1="230" x2="25" y2="625" stroke="url(#goldText2)" stroke-width="1.5"/>
+    <!-- Sweeping Pallu Drape -->
+    <path d="M 25,240 C -10,210 -45,160 -55,115 C -65,100 -75,130 -70,180 C -60,280 -65,480 -75,600 L -40,605 C -35,460 -35,280 -45,170 C -40,140 -20,165 15,200 Z" fill="#b8860b" stroke="url(#goldText2)" stroke-width="2"/>
+    <!-- Gold Border on Pallu -->
+    <path d="M -75,600 C -65,480 -60,280 -70,180" fill="none" stroke="#fff0c2" stroke-width="3"/>
+  </g>
+  <text x="300" y="740" text-anchor="middle" font-family="'Cinzel', serif" font-size="20" fill="url(#goldText2)" letter-spacing="4">ROYAL JAIPUR DRAPE</text>
+  <text x="300" y="765" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#a8a7a2" letter-spacing="2">HERITAGE PLEATED SAREE GOWN • SS26</text>
+</svg>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidushi &bull; Haute Couture &amp; 3D Fashion Atelier</title>
+    
+    <!-- Editorial Fashion Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Three.js Engine for Embedded 3D Viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <link rel="stylesheet" href="frontpage.css">
+</head>
+<body>
+    <div id="toast-notice" class="toast-notice"></div>
+
+    <!-- MINIMALIST EDITORIAL HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#hero" class="brand-logo">
+                <span class="brand-title">VIDUSHI</span>
+                <span class="brand-tagline">Atelier &bull; 2026–2027</span>
+            </a>
+
+            <!-- 4 CORE NAVIGATION OPTIONS + DESIGN HUB -->
+            <nav>
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#hero" class="active">Home</a></li>
+                    <li class="nav-item"><a href="#all-designs">All Design</a></li>
+                    <li class="nav-item"><a href="#view-3d">3D View</a></li>
+                    <li class="nav-item"><a href="#community-hub">Design Hub</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="studio.html" class="nav-action-btn" title="Open Full 3D CAD Studio">
+                3D CAD Studio &rarr;
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. FULLSCREEN HERO (AESTHETIC & ULTRA-HD QUALITY) -->
+    <section class="hero-fullscreen" id="hero">
+        <img src="assets/fashion_atelier_hero_ultra.jpg" id="hero-img-element" alt="Atelier Desk Flat-Lay" class="hero-bg-img">
+        <div class="hero-scrim"></div>
+
+        <div class="hero-content">
+            <!-- View Quality Switcher -->
+            <div class="hero-view-switcher">
+                <button type="button" class="hero-switcher-btn active" data-img="assets/fashion_atelier_hero_ultra.jpg">Studio 4K Ultra-HD</button>
+                <button type="button" class="hero-switcher-btn" data-img="assets/atelier_desk_hero_hd.jpg">Atelier Desk HD</button>
+            </div>
+
+            <span class="hero-kicker">Digital Haute Couture Archive</span>
+            <h1 class="hero-headline">VIDUSHI</h1>
+            <p class="hero-subheadline">Where Atelier Sketching Meets Real-Time 3D Innovation</p>
+            <p class="hero-desc">
+                An artistic digital space curated for Vidushi. Discover hand-drawn silhouettes, bespoke couture drapes, and interactive 3D virtual runway simulations. Upload your own sketches to the public gallery or drape them instantly onto 3D models.
+            </p>
+
+            <!-- 4 Aesthetic Quick Options -->
+            <div class="hero-options-row">
+                <a href="#all-designs" class="hero-opt-btn primary">All Design</a>
+                <a href="#view-3d" class="hero-opt-btn">3D Runway</a>
+                <a href="#community-hub" class="hero-opt-btn">Design Hub</a>
+                <a href="#contact" class="hero-opt-btn">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ALL DESIGNS (CURATED EDITORIAL LOOKBOOK) -->
+    <section class="section-wrapper" id="all-designs">
+        <div class="section-header-minimal">
+            <span class="section-num">01 / Curated Lookbook</span>
+            <h2 class="section-title-serif">Signature Creations</h2>
+            <p class="section-subtitle-italic">Architectural Eveningwear, Draped Heritage &amp; Bespoke Tailoring</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <button class="filter-link active" data-filter="all">All Looks (7)</button>
+            <button class="filter-link" data-filter="couture">Haute Couture</button>
+            <button class="filter-link" data-filter="bridal">Heritage Bridal</button>
+            <button class="filter-link" data-filter="pret">Tailoring</button>
+        </div>
+
+        <!-- Lookbook Grid -->
+        <div class="lookbook-grid">
+            <!-- Look 1 -->
+            <article class="lookbook-card" data-category="couture">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look1_emerald_velvet_ballgown.jpg" alt="Nocturne Emerald Velvet Ballgown">
+                    <span class="lookbook-category-tag">Haute Couture</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Nocturne Emerald Velvet Gown</h3>
+                    <p class="lookbook-desc">
+                        Deep emerald green silk velvet ballgown with antique gold filigree embroidery, structured sweetheart corset, and cathedral train.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="eveningGown">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Nocturne Emerald Velvet Gown', 'assets/look1_emerald_velvet_ballgown.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 2 -->
+            <article class="lookbook-card" data-category="bridal">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look2_ivory_gold_lehenga.jpg" alt="Royal Zardozi Heritage Lehenga">
+                    <span class="lookbook-category-tag">Heritage Bridal</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Royal Zardozi Heritage Lehenga</h3>
+                    <p class="lookbook-desc">
+                        Champagne ivory pure silk lehenga with 24K antique gold zardozi, dabka, and pearl embroidery with scalloped organza dupatta.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Royal Zardozi Heritage Lehenga', 'assets/look2_ivory_gold_lehenga.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 3 -->
+            <article class="lookbook-card" data-category="pret">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look3_architectural_blazer.jpg" alt="Solaris Pagoda Power Blazer Set">
+                    <span class="lookbook-category-tag">Bespoke Tailoring</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Solaris Pagoda Power Blazer</h3>
+                    <p class="lookbook-desc">
+                        Extreme sharp flared pagoda shoulders in jet black wool crepe with lustrous duchess satin lapels, cigarette trousers, and cape.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="blazerSet">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Solaris Pagoda Power Blazer', 'assets/look3_architectural_blazer.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 4 -->
+            <article class="lookbook-card" data-category="bridal">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look4_blush_draped_saree.jpg" alt="Blush Rose Cocktail Draped Saree">
+                    <span class="lookbook-category-tag">Heritage Couture</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Blush Rose Cocktail Saree</h3>
+                    <p class="lookbook-desc">
+                        Liquid asymmetric pre-pleated drape in blush pink georgette with micro-pearl borders and structured metallic rose gold corset blouse.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Blush Rose Cocktail Saree', 'assets/look4_blush_draped_saree.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 5 -->
+            <article class="lookbook-card" data-category="couture">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look5_sapphire_starlight_gown.jpg" alt="Midnight Sapphire Starlight Gown">
+                    <span class="lookbook-category-tag">Haute Couture</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Midnight Sapphire Starlight Gown</h3>
+                    <p class="lookbook-desc">
+                        Deep midnight navy silk tulle ballgown with hand-embroidered Swarovski crystal constellations, silver starbursts, and boned corset.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="eveningGown">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Midnight Sapphire Starlight Gown', 'assets/look5_sapphire_starlight_gown.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 6 -->
+            <article class="lookbook-card" data-category="bridal">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look6_crimson_royal_anarkali.jpg" alt="Crimson Raw Silk Royal Anarkali">
+                    <span class="lookbook-category-tag">Royal Heritage</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Crimson Raw Silk Royal Anarkali</h3>
+                    <p class="lookbook-desc">
+                        Pure crimson red raw silk flared silhouette with high mandarin collar, antique gold buttons, intricate zardozi hem, and sheer dupatta.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Crimson Raw Silk Royal Anarkali', 'assets/look6_crimson_royal_anarkali.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Look 7 -->
+            <article class="lookbook-card" data-category="couture">
+                <div class="lookbook-media-wrap">
+                    <img src="assets/look7_lavender_cloud_gown.jpg" alt="Lavender Cloud Met Gala Gown">
+                    <span class="lookbook-category-tag">Avant-Garde</span>
+                </div>
+                <div class="lookbook-details">
+                    <h3 class="lookbook-title">Lavender Cloud Wave Gown</h3>
+                    <p class="lookbook-desc">
+                        Multi-tiered cascading micro-ruffles in misty lavender and pastel lilac sheer silk organza with sculpted architectural wave bodice.
+                    </p>
+                    <div class="lookbook-footer">
+                        <a href="#view-3d" class="lookbook-3d-link" data-garment="avantGarde">View in 3D &rarr;</a>
+                        <button class="lookbook-zoom-btn" onclick="openLightbox('Lavender Cloud Wave Gown', 'assets/look7_lavender_cloud_gown.jpg')">Detail Spec</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 3. 3D DESIGN RUNWAY (CLEAN & AESTHETIC SIMULATION) -->
+    <section class="runway-section" id="view-3d">
+        <div class="section-wrapper" style="padding-bottom: 0;">
+            <div class="section-header-minimal">
+                <span class="section-num">02 / 3D Virtual Runway</span>
+                <h2 class="section-title-serif">Interactive Simulation</h2>
+                <p class="section-subtitle-italic">Real-Time Draping, Luxury Fabric Physics &amp; Silhouette Testing</p>
+            </div>
+
+            <div class="runway-viewport-box">
+                <!-- 3D Canvas -->
+                <div class="runway-canvas-wrap">
+                    <div id="front-studio-viewport"></div>
+                    <div class="runway-overlay-hint">
+                        <span>Click &amp; Drag to Orbit 360&deg;</span>
+                    </div>
+                </div>
+
+                <!-- Controls Panel -->
+                <aside class="runway-controls-panel">
+                    <div>
+                        <span class="ctrl-group-title">1. Silhouette</span>
+                        <div class="ctrl-btn-grid">
+                            <button class="ctrl-pill-btn v3d-garment-btn active" data-garment="eveningGown">Gown</button>
+                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="saree">Saree</button>
+                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="blazerSet">Blazer</button>
+                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="avantGarde">Avant-Garde</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="ctrl-group-title">2. Fabric Finish</span>
+                        <div class="ctrl-btn-grid">
+                            <button class="ctrl-pill-btn v3d-fabric-btn active" data-fabric="silk">Silk</button>
+                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="velvet">Velvet</button>
+                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="organza">Organza</button>
+                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="metallic">Lurex</button>
+                        </div>
+                    </div>
+
+                    <div class="ctrl-row-inline">
+                        <span class="ctrl-label-inline">Garment Color</span>
+                        <input type="color" id="v3d-color-picker" value="#d4af37" style="border: none; width: 28px; height: 28px; cursor: pointer; background: none;">
+                    </div>
+
+                    <div class="ctrl-row-inline">
+                        <span class="ctrl-label-inline">Runway Breeze</span>
+                        <input type="checkbox" id="v3d-breeze-toggle" checked style="cursor: pointer; width: 16px; height: 16px; accent-color: #111111;">
+                    </div>
+
+                    <button type="button" id="v3d-snapshot-btn" class="action-solid-btn">
+                        Capture Snapshot
+                    </button>
+
+                    <a href="studio.html" class="studio-launch-link" target="_blank">
+                        Open Full CAD &amp; Pattern Studio &rarr;
+                    </a>
+                </aside>
+            </div>
+        </div>
+        <div style="height: 120px;"></div>
+    </section>
+
+    <!-- 4. DESIGN HUB & PUBLIC SHOWCASE (SIMPLE & SLEEK) -->
+    <section class="section-wrapper" id="community-hub">
+        <div class="section-header-minimal">
+            <span class="section-num">03 / Collaborative Atelier</span>
+            <h2 class="section-title-serif">Design Hub &amp; Public Showcase</h2>
+            <p class="section-subtitle-italic">Upload your fashion sketches &bull; Publicly showcased for everyone to view in 3D</p>
+        </div>
+
+        <div class="hub-layout-clean">
+            <!-- Left: Minimalist Upload Form -->
+            <div class="hub-upload-card-clean">
+                <h3 class="hub-card-heading">Upload Design</h3>
+                <p class="hub-card-sub">Upload croquis drawings, hand sketches, or CAD concepts to display publicly.</p>
+
+                <!-- Dropzone -->
+                <div class="hub-drop-area" id="hub-dropzone">
+                    <p class="drop-title">Drop Sketch Here or Browse</p>
+                    <p class="drop-sub">PNG, JPG, SVG, WebP</p>
+                    <input type="file" id="hub-file-input" accept="image/*" style="display: none;">
+                    <img id="hub-preview-thumb" class="hub-thumb-preview" alt="Preview">
+                </div>
+
+                <div class="hub-field-group">
+                    <label for="hub-title">Design Title</label>
+                    <input type="text" id="hub-title" placeholder="e.g. Royal Emerald Corset Drape">
+                </div>
+
+                <div class="hub-field-group">
+                    <label for="hub-designer">Designer Name</label>
+                    <input type="text" id="hub-designer" value="Vidushi">
+                </div>
+
+                <div class="hub-field-group">
+                    <label for="hub-category">Category</label>
+                    <select id="hub-category">
+                        <option value="Haute Couture">Haute Couture</option>
+                        <option value="Heritage Bridal">Heritage Bridal</option>
+                        <option value="Tailoring">Tailoring</option>
+                        <option value="Eveningwear">Eveningwear</option>
+                    </select>
+                </div>
+
+                <div class="hub-field-group">
+                    <label for="hub-garment-type">3D Silhouette</label>
+                    <select id="hub-garment-type">
+                        <option value="eveningGown">Evening Gown</option>
+                        <option value="saree">Royal Saree</option>
+                        <option value="blazerSet">Tailored Blazer</option>
+                        <option value="avantGarde">Avant-Garde</option>
+                    </select>
+                </div>
+
+                <div class="hub-field-group">
+                    <label for="hub-fabric">Fabric &amp; Details</label>
+                    <textarea id="hub-fabric" rows="2" placeholder="e.g. Pure mulberry silk with metallic threadwork"></textarea>
+                </div>
+
+                <button type="button" id="hub-publish-btn" class="action-solid-btn">
+                    Publish to Public Gallery
+                </button>
+            </div>
+
+            <!-- Right: Public Gallery Showcase -->
+            <div class="hub-gallery-column">
+                <div class="hub-gallery-top">
+                    <h3 class="hub-gallery-title">Public Showcase</h3>
+                    <span class="hub-count-label" id="hub-count-tag">Loading...</span>
+                </div>
+
+                <div class="hub-items-grid" id="hub-cards-grid">
+                    <!-- Populated dynamically via frontpage.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CONTACT SECTION (BESPOKE APPOINTMENTS) -->
+    <section class="section-wrapper" id="contact" style="background: #fafaf8; border-top: 1px solid var(--border-color);">
+        <div class="section-header-minimal">
+            <span class="section-num">04 / Appointments</span>
+            <h2 class="section-title-serif">Bespoke Inquiries</h2>
+            <p class="section-subtitle-italic">Private consultations with Vidushi for bridal couture, red carpet styling, and 3D digital fashion.</p>
+        </div>
+
+        <div class="contact-wrap-clean">
+            <form id="front-contact-form" class="contact-form-clean">
+                <div class="form-2col">
+                    <div class="input-group-clean">
+                        <label for="cf-name">Your Name</label>
+                        <input type="text" id="cf-name" placeholder="Full name" required>
+                    </div>
+
+                    <div class="input-group-clean">
+                        <label for="cf-email">Email Address</label>
+                        <input type="email" id="cf-email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-2col">
+                    <div class="input-group-clean">
+                        <label for="cf-type">Commission Type</label>
+                        <select id="cf-type">
+                            <option value="Bridal Couture">Bridal Couture &amp; Trousseau</option>
+                            <option value="Evening Ballgown">Red Carpet Evening Gown</option>
+                            <option value="Bespoke Tailoring">Bespoke Tailored Blazer</option>
+                            <option value="3D Digital Fashion">3D Digital Garment CAD</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-clean">
+                        <label for="cf-date">Target Date</label>
+                        <input type="date" id="cf-date">
+                    </div>
+                </div>
+
+                <div class="input-group-clean">
+                    <label for="cf-notes">Design Vision &amp; Fabric Notes</label>
+                    <textarea id="cf-notes" rows="4" placeholder="Share your silhouette ideas, color palettes, or embroidery preferences..."></textarea>
+                </div>
+
+                <button type="submit" class="action-solid-btn">
+                    Send Inquiry to Vidushi
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <strong>VIDUSHI</strong> &bull; Haute Couture &amp; 3D Fashion Atelier
+            </div>
+            <div>
+                Portfolio Archive 2026–2027
+            </div>
+            <div>
+                <a href="#hero">Back to Top &uarr;</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="modal-overlay" id="lightbox-modal">
+        <div class="modal-box-clean">
+            <div class="modal-top-bar">
+                <h3 class="modal-heading" id="lightbox-title">Design Preview</h3>
+                <button class="modal-close-trigger" onclick="closeLightbox()">&times;</button>
+            </div>
+            <div class="modal-img-container">
+                <img src="" id="lightbox-img" alt="Zoomed View">
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/patterns.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/sketch-uploader.js"></script>
+    <script src="frontpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1c1824"/>
+      <stop offset="100%" stop-color="#0a090d"/>
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0c2"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#8a6e1d"/>
+    </linearGradient>
+    <linearGradient id="emeraldSilk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#144d32"/>
+      <stop offset="60%" stop-color="#0b2e1e"/>
+      <stop offset="100%" stop-color="#05170f"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgGlow)"/>
+  <!-- Elegant background runway spotlight -->
+  <circle cx="300" cy="380" r="280" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="1.5"/>
+  <circle cx="300" cy="380" r="250" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1"/>
+  
+  <!-- Silhouette Illustration -->
+  <g transform="translate(300, 100)">
+    <!-- Head / Neck -->
+    <ellipse cx="0" cy="40" rx="20" ry="26" fill="#141418" stroke="url(#goldText)" stroke-width="2"/>
+    <path d="M -8,66 L 8,66 L 14,92 L -14,92 Z" fill="#141418" stroke="url(#goldText)" stroke-width="1.5"/>
+    <!-- Bodice Corset -->
+    <path d="M -60,110 C -25,100 25,100 60,110 L 45,180 C 25,230 20,240 32,260 L -32,260 C -20,240 -25,230 -45,180 Z" fill="url(#emeraldSilk)" stroke="url(#goldText)" stroke-width="2.5"/>
+    <!-- Gold embroidery details on bodice -->
+    <path d="M 0,115 L 0,250 M -20,140 C 0,170 0,200 -15,240 M 20,140 C 0,170 0,200 15,240" fill="none" stroke="url(#goldText)" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <!-- Waist belt -->
+    <rect x="-35" y="254" width="70" height="12" fill="#d4af37" rx="3"/>
+    <!-- Flared Ballgown Skirt -->
+    <path d="M -32,266 C -60,350 -160,520 -190,620 C -120,640 120,640 190,620 C 160,520 60,350 32,266 Z" fill="url(#emeraldSilk)" stroke="url(#goldText)" stroke-width="2.5"/>
+    <!-- Skirt Ripples & Drapes -->
+    <path d="M -15,266 C -40,400 -110,540 -120,630" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
+    <path d="M 0,266 C 0,400 0,550 0,635" fill="none" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+    <path d="M 15,266 C 40,400 110,540 120,630" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
+    <path d="M -25,266 C -80,420 -160,560 -180,625" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1.5"/>
+    <path d="M 25,266 C 80,420 160,560 180,625" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1.5"/>
+  </g>
+  <!-- Editorial Label -->
+  <text x="300" y="740" text-anchor="middle" font-family="'Cinzel', serif" font-size="20" fill="url(#goldText)" letter-spacing="4">NOCTURNE ROYALE</text>
+  <text x="300" y="765" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#a8a7a2" letter-spacing="2">HAUTE COUTURE BALLGOWN • SS26</text>
+</svg>

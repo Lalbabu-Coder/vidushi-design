@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDUSHI • Haute Couture Fashion Designer & 3D Atelier Portfolio</title>
+    
+    <!-- Google Fonts for Luxury Fashion Editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <div id="toast" class="toast"></div>
+
+    <!-- FLOATING TOP BAR -->
+    <header class="portfolio-header">
+        <div class="header-inner">
+            <a href="#hero" class="brand-monogram">
+                <span class="crest-icon">⚜️</span>
+                <div class="brand-title-wrap">
+                    <span class="brand-name">VIDUSHI</span>
+                    <span class="brand-sub">HAUTE COUTURE & DIGITAL 3D ATELIER</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#collections">Collections</a>
+                <a href="#digital-atelier">3D Showroom</a>
+                <a href="#process">Atelier Archive</a>
+                <a href="#techpacks">Tech Packs</a>
+                <a href="#about">About Vidushi</a>
+                <a href="#contact">Bespoke Inquiry</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="index.html" class="studio-link-btn" title="Open Interactive 3D Fashion Studio">
+                    <span class="sparkle">✦</span>
+                    <span>Launch 3D Studio</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Haute Couture Portfolio • Official Archive</span>
+            </div>
+            
+            <h1 class="hero-title">
+                WHERE HERITAGE TEXTILES<br>
+                <span class="title-italic">MEET 3D COUTURE</span>
+            </h1>
+
+            <p class="hero-statement">
+                Sculpting the future of fashion through architectural corsetry, traditional Indian zardozi draping,
+                and groundbreaking real-time 3D garment engineering.
+            </p>
+
+            <div class="hero-ctas">
+                <a href="#collections" class="primary-cta-btn">
+                    <span>Explore Lookbook</span>
+                    <span class="arrow-down">↓</span>
+                </a>
+                <a href="index.html" class="secondary-cta-btn">
+                    <span class="icon">👗</span>
+                    <span>Interactive 3D Runway</span>
+                </a>
+            </div>
+
+            <!-- Stats Ribbon -->
+            <div class="hero-stats-ribbon">
+                <div class="stat-item">
+                    <span class="stat-num">05</span>
+                    <span class="stat-label">Couture Silhouettes</span>
+                </div>
+                <div class="stat-sep">✦</div>
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Digital 3D CAD Prototyped</span>
+                </div>
+                <div class="stat-sep">✦</div>
+                <div class="stat-item">
+                    <span class="stat-num">SS26</span>
+                    <span class="stat-label">Collection Debut</span>
+                </div>
+                <div class="stat-sep">✦</div>
+                <div class="stat-item">
+                    <span class="stat-num">Bespoke</span>
+                    <span class="stat-label">Red Carpet & Bridal</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN PORTFOLIO WRAPPER -->
+    <main class="portfolio-container">
+
+        <!-- SECTION 1: EDITORIAL COLLECTIONS LOOKBOOK -->
+        <section class="section-block" id="collections">
+            <div class="section-head">
+                <div class="section-meta">
+                    <span class="section-num">01 / LOOKBOOK</span>
+                    <span class="section-rule"></span>
+                </div>
+                <h2 class="section-heading">Curated Runway Collections</h2>
+                <p class="section-subheading">A study of form, light, drape, and meticulous structural tailoring.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-bar">
+                <button class="filter-pill active" data-filter="all">All Masterpieces</button>
+                <button class="filter-pill" data-filter="couture">Haute Couture</button>
+                <button class="filter-pill" data-filter="heritage">Royal Heritage</button>
+                <button class="filter-pill" data-filter="contemporary">Contemporary & Tailored</button>
+            </div>
+
+            <!-- Collection Cards Grid -->
+            <div class="collection-grid">
+
+                <!-- CARD 1: Evening Gown -->
+                <article class="collection-card" data-category="couture">
+                    <div class="card-media">
+                        <img src="assets/look1_evening_gown.svg" alt="Nocturne Royale Ballgown" class="card-img" />
+                        <span class="look-badge">Look 01 • Haute Couture</span>
+                        <div class="card-overlay">
+                            <a href="index.html?garment=eveningGown" class="overlay-3d-btn">
+                                <span>👗 Launch in 3D Runway</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-tags-row">
+                            <span class="tag">Mulberry Silk</span>
+                            <span class="tag">Corsetry</span>
+                            <span class="tag">Gold Filigree</span>
+                        </div>
+                        <h3 class="card-title">Nocturne Royale Ballgown</h3>
+                        <p class="card-desc">
+                            A sculptured corseted evening gown with sinusoidal cascading ripples that evoke
+                            architectural waves of liquid emerald silk satin. Hand-finished with gold Mughal filigree.
+                        </p>
+                        <div class="card-palette">
+                            <span class="color-dot" style="background:#0b3b24" title="Emerald Velvet"></span>
+                            <span class="color-dot" style="background:#d4af37" title="Champagne Gold"></span>
+                            <span class="color-dot" style="background:#071c12" title="Deep Noir"></span>
+                        </div>
+                        <div class="card-footer-actions">
+                            <button class="action-text-btn view-details-btn" data-look="look1">Dossier Details</button>
+                            <a href="index.html?garment=eveningGown" class="action-text-btn highlight">View 3D Model →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Royal Saree -->
+                <article class="collection-card" data-category="heritage">
+                    <div class="card-media">
+                        <img src="assets/look2_royal_saree.svg" alt="Royal Jaipur Draped Saree" class="card-img" />
+                        <span class="look-badge">Look 02 • Royal Heritage</span>
+                        <div class="card-overlay">
+                            <a href="index.html?garment=royalSaree" class="overlay-3d-btn">
+                                <span>👗 Launch in 3D Runway</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-tags-row">
+                            <span class="tag">Ruby Velvet</span>
+                            <span class="tag">Pleated Pallu</span>
+                            <span class="tag">Zardozi</span>
+                        </div>
+                        <h3 class="card-title">Royal Jaipur Draped Saree Gown</h3>
+                        <p class="card-desc">
+                            A seamless union of traditional Indian saree pleating and modern red-carpet gown structure.
+                            Features an ethereal cascading pallu trimmed with heavy 24K gold brocade border.
+                        </p>
+                        <div class="card-palette">
+                            <span class="color-dot" style="background:#701222" title="Royal Ruby"></span>
+                            <span class="color-dot" style="background:#e5c158" title="Zari Gold"></span>
+                            <span class="color-dot" style="background:#200308" title="Noir Maroon"></span>
+                        </div>
+                        <div class="card-footer-actions">
+                            <button class="action-text-btn view-details-btn" data-look="look2">Dossier Details</button>
+                            <a href="index.html?garment=royalSaree" class="action-text-btn highlight">View 3D Model →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Architectural Blazer -->
+                <article class="collection-card" data-category="contemporary">
+                    <div class="card-media">
+                        <img src="assets/look3_couture_blazer.svg" alt="Solaris Met Gala Blazer" class="card-img" />
+                        <span class="look-badge">Look 03 • Contemporary</span>
+                        <div class="card-overlay">
+                            <a href="index.html?garment=coutureBlazer" class="overlay-3d-btn">
+                                <span>👗 Launch in 3D Runway</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-tags-row">
+                            <span class="tag">Tailored Wool</span>
+                            <span class="tag">Power Shoulders</span>
+                            <span class="tag">Brass Accents</span>
+                        </div>
+                        <h3 class="card-title">Solaris Met Gala Architectural Blazer</h3>
+                        <p class="card-desc">
+                            Sharp architectural power shoulders paired with a minimalist silhouette. Accented with
+                            sculpted gold buttons and paired with a high-waisted tailored pencil skirt.
+                        </p>
+                        <div class="card-palette">
+                            <span class="color-dot" style="background:#131118" title="Obsidian Noir"></span>
+                            <span class="color-dot" style="background:#d4af37" title="Gilded Brass"></span>
+                            <span class="color-dot" style="background:#2d2e38" title="Graphite"></span>
+                        </div>
+                        <div class="card-footer-actions">
+                            <button class="action-text-btn view-details-btn" data-look="look3">Dossier Details</button>
+                            <a href="index.html?garment=coutureBlazer" class="action-text-btn highlight">View 3D Model →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 4: Asymmetric Wrap Dress -->
+                <article class="collection-card" data-category="couture">
+                    <div class="card-media">
+                        <img src="assets/sample_rosegold_deco.svg" alt="Ethereal Rose Quartz Wrap" class="card-img" />
+                        <span class="look-badge">Look 04 • Haute Couture</span>
+                        <div class="card-overlay">
+                            <a href="index.html?garment=cocktailWrap" class="overlay-3d-btn">
+                                <span>👗 Launch in 3D Runway</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-tags-row">
+                            <span class="tag">Silk Organza</span>
+                            <span class="tag">Rose Quartz</span>
+                            <span class="tag">Tulip Hem</span>
+                        </div>
+                        <h3 class="card-title">Ethereal Rose Quartz Wrap Dress</h3>
+                        <p class="card-desc">
+                            An asymmetric one-shoulder evening silhouette with bias-draped sheer organza and a tulip wrap hem,
+                            evoking morning mist and French marble textures.
+                        </p>
+                        <div class="card-palette">
+                            <span class="color-dot" style="background:#e8b4b8" title="Rose Quartz"></span>
+                            <span class="color-dot" style="background:#fcf8f5" title="Ivory Pearl"></span>
+                            <span class="color-dot" style="background:#d4af37" title="Champagne Gold"></span>
+                        </div>
+                        <div class="card-footer-actions">
+                            <button class="action-text-btn view-details-btn" data-look="look4">Dossier Details</button>
+                            <a href="index.html?garment=cocktailWrap" class="action-text-btn highlight">View 3D Model →</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: 3D DIGITAL ATELIER SPOTLIGHT -->
+        <section class="section-block spotlight-section" id="digital-atelier">
+            <div class="spotlight-card">
+                <div class="spotlight-content">
+                    <div class="spotlight-tag">INNOVATION & TECHNOLOGY</div>
+                    <h2>The 3D Digital Fashion Engineering Atelier</h2>
+                    <p>
+                        Vidushi leads the vanguard of sustainable fashion by replacing wasteful physical sample cutting
+                        with high-fidelity 3D digital prototypes. Every garment is mathematically sculpted, draped in real-time,
+                        and tested under dynamic runway lighting before single shears touch the fabric.
+                    </p>
+
+                    <ul class="spotlight-feature-list">
+                        <li>
+                            <span class="f-icon">✦</span>
+                            <div>
+                                <strong>Interactive 360° Real-time Draping:</strong>
+                                <span>Instant digital texture mapping onto 3D dress forms.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="f-icon">✦</span>
+                            <div>
+                                <strong>Dynamic Cloth Physics & Breeze Simulation:</strong>
+                                <span>Realistic fabric wave movement for runway testing.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="f-icon">✦</span>
+                            <div>
+                                <strong>Paper Sketch Clean-up & Stencil Mapping:</strong>
+                                <span>Seamless conversion from hand-drawn notebook sketches into 3D textiles.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="spotlight-cta-wrap">
+                        <a href="index.html" class="primary-cta-btn">
+                            <span>Open Live 3D Runway Atelier</span>
+                            <span>→</span>
+                        </a>
+                        <span class="spotlight-note">Runs in any browser • No plugins required</span>
+                    </div>
+                </div>
+
+                <div class="spotlight-preview-wrap">
+                    <div class="preview-frame">
+                        <div class="preview-badge">LIVE 3D SIMULATION</div>
+                        <img src="assets/look1_evening_gown.svg" alt="3D Atelier Preview" class="preview-thumb" />
+                        <div class="preview-glass-banner">
+                            <span>ATELIER VIDUSHI • 3D ENGINE</span>
+                            <small>Interactive WebGL Studio Active</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SKETCHES, CROQUIS & ATELIER ARCHIVE -->
+        <section class="section-block" id="process">
+            <div class="section-head">
+                <div class="section-meta">
+                    <span class="section-num">02 / ARCHIVE</span>
+                    <span class="section-rule"></span>
+                </div>
+                <h2 class="section-heading">Sketches, Croquis & Craftsmanship</h2>
+                <p class="section-subheading">From initial gestural pencil strokes on drafting paper to intricate gold filigree.</p>
+            </div>
+
+            <div class="sketches-grid">
+                <div class="sketch-card zoomable" data-title="Nine-Head Croquis Silhouette Study" data-img="assets/sketch_croquis_1.svg">
+                    <img src="assets/sketch_croquis_1.svg" alt="Croquis Study" class="sketch-img" />
+                    <div class="sketch-info">
+                        <h4>Nine-Head Proportion Croquis</h4>
+                        <p>Pencil & Gold Foil • Ballgown Silhouette Study</p>
+                    </div>
+                </div>
+
+                <div class="sketch-card zoomable" data-title="Royal Gold Filigree Mandala Embroidery" data-img="assets/sample_royal_mandala.svg">
+                    <img src="assets/sample_royal_mandala.svg" alt="Mandala Pattern" class="sketch-img" />
+                    <div class="sketch-info">
+                        <h4>Mughal Zardozi Motif Study</h4>
+                        <p>Gold Thread & Gemstone Geometry</p>
+                    </div>
+                </div>
+
+                <div class="sketch-card zoomable" data-title="Rose Gold Art Deco Geometric Matrix" data-img="assets/sample_rosegold_deco.svg">
+                    <img src="assets/sample_rosegold_deco.svg" alt="Rose Gold Deco" class="sketch-img" />
+                    <div class="sketch-info">
+                        <h4>Art Deco Concentric Arc Study</h4>
+                        <p>Architectural Jacquard Weave</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PRODUCTION TECH PACKS -->
+        <section class="section-block" id="techpacks">
+            <div class="section-head">
+                <div class="section-meta">
+                    <span class="section-num">03 / TECHNICAL</span>
+                    <span class="section-rule"></span>
+                </div>
+                <h2 class="section-heading">Industry Technical Specification Sheets</h2>
+                <p class="section-subheading">Full factory-ready dossiers for precision tailoring and couture garment manufacturing.</p>
+            </div>
+
+            <div class="techpack-preview-card">
+                <div class="tp-card-left">
+                    <div class="tp-tag">SAMPLE SPECIFICATION DOSSIER</div>
+                    <h3>Style #VID-SS26-084: The Nocturne Ballgown</h3>
+                    <p>
+                        A comprehensive fashion tech pack detailing measurement tolerances, grading tables,
+                        seam structures, French seam directives, and luxury textile procurement standards.
+                    </p>
+
+                    <div class="tp-quick-specs">
+                        <div class="spec-cell">
+                            <span class="label">Primary Fabric</span>
+                            <span class="val">100% Mulberry Silk Satin (82 GSM)</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="label">Sample Size</span>
+                            <span class="val">US 4 / UK 8 (Bust 34" • Waist 26" • Hips 36")</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="label">Internal Structure</span>
+                            <span class="val">Spiral Steel Boning • Waist Stay-Tape</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="label">Hemline Finish</span>
+                            <span class="val">2-inch Horsehair Braid Flare</span>
+                        </div>
+                    </div>
+
+                    <div class="tp-btn-row">
+                        <a href="index.html" class="primary-cta-btn">
+                            <span>Open Tech Pack Generator in Atelier</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tp-card-right">
+                    <div class="sheet-mockup">
+                        <div class="sheet-line header-line"></div>
+                        <div class="sheet-line title-line"></div>
+                        <div class="sheet-grid-mock">
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                        </div>
+                        <div class="sheet-line"></div>
+                        <div class="sheet-line"></div>
+                        <div class="sheet-seal">⚜️ VIDUSHI VERIFIED</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ABOUT THE DESIGNER -->
+        <section class="section-block" id="about">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="portrait-frame">
+                        <div class="portrait-inner">
+                            <span class="crest-large">⚜️</span>
+                            <h3 class="portrait-name">VIDUSHI</h3>
+                            <span class="portrait-role">Couturier & Fashion Innovator</span>
+                        </div>
+                        <div class="gold-corner top-left"></div>
+                        <div class="gold-corner top-right"></div>
+                        <div class="gold-corner bottom-left"></div>
+                        <div class="gold-corner bottom-right"></div>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="section-meta">
+                        <span class="section-num">04 / THE DESIGNER</span>
+                        <span class="section-rule"></span>
+                    </div>
+                    <h2 class="section-heading">About Vidushi</h2>
+                    <h3 class="about-quote">
+                        "Fashion is not merely about decorating the body — it is about engineering dreams,
+                        celebrating heritage, and commanding the room with effortless poise."
+                    </h3>
+
+                    <p class="about-bio">
+                        Vidushi is an emerging couture fashion designer recognized for her exquisite sensibility in balancing
+                        classic Indian craftsmanship with international red-carpet silhouettes. Her work challenges the boundaries
+                        between physical haute couture draping and futuristic digital fashion technology.
+                    </p>
+
+                    <p class="about-bio">
+                        Trained in traditional textile arts, corsetry, and advanced 3D garment visualization, Vidushi creates
+                        bespoke bridal wear, evening ballgowns, and tailored architectural statements that empower the modern woman.
+                    </p>
+
+                    <!-- Core Competencies -->
+                    <div class="skills-section">
+                        <h4>CORE COMPETENCIES & EXPERTISE</h4>
+                        <div class="skills-pills-wrap">
+                            <span class="skill-pill">Haute Couture Draping (Moulage)</span>
+                            <span class="skill-pill">3D Garment CAD & Three.js Prototyping</span>
+                            <span class="skill-pill">Architectural Corsetry & Boning</span>
+                            <span class="skill-pill">Indian Zardozi & Aari Embroidery</span>
+                            <span class="skill-pill">Pattern Drafting & Size Grading</span>
+                            <span class="skill-pill">Production Tech Packs & Factory Specs</span>
+                            <span class="skill-pill">Sustainable Silk & Velvet Sourcing</span>
+                            <span class="skill-pill">Pantone Color Theory & Forecasting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: BESPOKE COMMISSION & CONTACT -->
+        <section class="section-block" id="contact">
+            <div class="contact-card">
+                <div class="contact-head">
+                    <span class="crest-icon">⚜️</span>
+                    <h2>Bespoke Couture & Inquiries</h2>
+                    <p>Inquire for custom bridal commissions, runway collaborations, or design consultation.</p>
+                </div>
+
+                <form class="contact-form" id="bespoke-inquiry-form">
+                    <div class="form-row dual">
+                        <div class="form-group">
+                            <label for="inq-name">Your Full Name / House</label>
+                            <input type="text" id="inq-name" required placeholder="e.g. Lady Genevieve / House of Milan">
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-email">Email Address</label>
+                            <input type="email" id="inq-email" required placeholder="client@couture.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row dual">
+                        <div class="form-group">
+                            <label for="inq-type">Commission Type</label>
+                            <select id="inq-type">
+                                <option value="bespoke_bridal">Bespoke Bridal Heritage</option>
+                                <option value="red_carpet">Red Carpet / Gala Eveningwear</option>
+                                <option value="runway_collab">Runway / Brand Collaboration</option>
+                                <option value="tech_consult">3D Digital Fashion Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inq-date">Target Occasion Date</label>
+                            <input type="date" id="inq-date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inq-notes">Design Vision / Silhouette Preferences</label>
+                        <textarea id="inq-notes" rows="4" placeholder="Describe your dream silhouette, preferred textiles (Silk, Velvet, Organza), colors, and bespoke details..."></textarea>
+                    </div>
+
+                    <div class="form-submit-row">
+                        <button type="submit" class="submit-inquiry-btn">
+                            <span>⚜️ Submit Bespoke Inquiry to Vidushi</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="contact-social-row">
+                    <span class="social-label">Follow Atelier Vidushi:</span>
+                    <a href="#" class="social-link">Instagram</a>
+                    <span class="social-dot">•</span>
+                    <a href="#" class="social-link">Behance</a>
+                    <span class="social-dot">•</span>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <span class="social-dot">•</span>
+                    <a href="#" class="social-link">Vogue Runway Directory</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="portfolio-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-crest">⚜️</span>
+                <span><strong>ATELIER VIDUSHI</strong> • HAUTE COUTURE & 3D DESIGN STUDIO</span>
+            </div>
+            <div class="footer-center">
+                <span>Curated with passion for Vidushi's fashion journey.</span>
+            </div>
+            <div class="footer-right">
+                <a href="#hero">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL FOR SKETCHES & LOOK DETAILS -->
+    <div class="modal-overlay" id="lightbox-modal">
+        <div class="modal-dialog lightbox-dialog">
+            <div class="modal-header">
+                <h3 id="lightbox-title">Archive Look</h3>
+                <button class="close-modal-btn" onclick="closeLightbox()">&times;</button>
+            </div>
+            <div class="modal-body lightbox-body">
+                <img src="" id="lightbox-img" alt="Zoomed View" />
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="portfolio.js"></script>
+</body>
+</html>
