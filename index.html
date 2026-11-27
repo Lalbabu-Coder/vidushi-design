@@ -3,47 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidushi &bull; Haute Couture &amp; 3D Fashion Atelier</title>
+    <title>Vidushi &bull; Haute Couture &amp; Bespoke Fashion Designer</title>
     
     <!-- Editorial Fashion Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Three.js Engine for Embedded 3D Viewer -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="frontpage.css">
 </head>
 <body>
     <div id="toast-notice" class="toast-notice"></div>
 
-    <!-- MINIMALIST EDITORIAL HEADER -->
+    <!-- MINIMALIST LUXURY HEADER -->
     <header class="site-header">
         <div class="header-container">
             <a href="#hero" class="brand-logo">
                 <span class="brand-title">VIDUSHI</span>
-                <span class="brand-tagline">Atelier &bull; 2026–2027</span>
+                <span class="brand-tagline">Haute Couture &bull; 2026–2027</span>
             </a>
 
-            <!-- 4 CORE NAVIGATION OPTIONS + DESIGN HUB (DESKTOP) -->
+            <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="#hero" class="active">Home</a></li>
-                    <li class="nav-item"><a href="#all-designs">All Design</a></li>
-                    <li class="nav-item"><a href="#view-3d">3D View</a></li>
-                    <li class="nav-item"><a href="#community-hub">Design Hub</a></li>
+                    <li class="nav-item"><a href="#shop">Shop <span class="nav-badge-inline">Buy Online</span></a></li>
+                    <li class="nav-item"><a href="#collections">Collections</a></li>
+                    <li class="nav-item"><a href="#post-design">Post Design</a></li>
+                    <li class="nav-item"><a href="#about">About Vidushi</a></li>
                     <li class="nav-item"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="header-right-actions">
-                <a href="studio.html" class="nav-action-btn desktop-only" title="Open Full 3D CAD Studio">
-                    3D CAD Studio &rarr;
+                <a href="#shop" class="nav-action-btn desktop-only" title="Browse Buyable Designs">
+                    <span>🛍️ Shop Boutique</span>
                 </a>
 
-                <!-- Mobile Hamburger Toggle Button -->
+                <!-- Mobile Hamburger Toggle -->
                 <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open Navigation">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -52,69 +49,185 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu Drawer -->
+        <!-- Mobile Navigation Drawer -->
         <div class="mobile-nav-drawer" id="mobile-nav-drawer">
             <nav class="mobile-drawer-links">
-                <a href="#hero" class="mobile-nav-item active">Home</a>
-                <a href="#all-designs" class="mobile-nav-item">All Design</a>
-                <a href="#view-3d" class="mobile-nav-item">3D Virtual Runway</a>
-                <a href="#community-hub" class="mobile-nav-item">Design Hub &amp; Showcase</a>
-                <a href="#contact" class="mobile-nav-item">Contact</a>
-                <a href="studio.html" class="mobile-nav-item mobile-cta-item">Open 3D CAD Studio &rarr;</a>
+                <a href="#hero" class="mobile-nav-item active">Home (Vidushi's Profile)</a>
+                <a href="#shop" class="mobile-nav-item">Shop Designs (Buy Online)</a>
+                <a href="#collections" class="mobile-nav-item">Curated Collections</a>
+                <a href="#post-design" class="mobile-nav-item">Post Your Design</a>
+                <a href="#about" class="mobile-nav-item">About Designer</a>
+                <a href="#contact" class="mobile-nav-item">Bespoke Orders &amp; Contact</a>
+                <a href="#shop" class="mobile-nav-item mobile-cta-item">🛍️ Browse Atelier Shop</a>
             </nav>
         </div>
     </header>
 
-    <!-- 1. FULLSCREEN HERO (AESTHETIC & ULTRA-HD QUALITY) -->
-    <section class="hero-fullscreen" id="hero">
-        <img src="assets/fashion_atelier_hero_ultra.jpg" id="hero-img-element" alt="Atelier Desk Flat-Lay" class="hero-bg-img">
-        <div class="hero-scrim"></div>
-
-        <div class="hero-content">
-            <!-- View Quality Switcher -->
-            <div class="hero-view-switcher">
-                <button type="button" class="hero-switcher-btn active" data-img="assets/fashion_atelier_hero_ultra.jpg">Studio 4K Ultra-HD</button>
-                <button type="button" class="hero-switcher-btn" data-img="assets/atelier_desk_hero_hd.jpg">Atelier Desk HD</button>
+    <!-- 1. HERO SECTION: VIDUSHI'S PROFILE & DESIGN PHILOSOPHY -->
+    <section class="hero-designer-section" id="hero">
+        <div class="hero-split-container">
+            <!-- Left: Vidushi's Portrait Card -->
+            <div class="hero-portrait-col">
+                <div class="portrait-frame-card">
+                    <div class="portrait-photo-wrap">
+                        <img src="assets/vidushi_profile_hd.png" alt="Fashion Designer Vidushi" id="vidushi-main-portrait">
+                    </div>
+                    <div class="portrait-badge-bottom">
+                        <span class="badge-crest-gold">⚜️</span>
+                        <div>
+                            <span class="badge-name-text">VIDUSHI</span> &bull; 
+                            <span class="badge-role-text">Founder &amp; Fashion Designer</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <span class="hero-kicker">Digital Haute Couture Archive</span>
-            <h1 class="hero-headline">VIDUSHI</h1>
-            <p class="hero-subheadline">Where Atelier Sketching Meets Real-Time 3D Innovation</p>
-            <p class="hero-desc">
-                An artistic digital space curated for Vidushi. Discover hand-drawn silhouettes, bespoke couture drapes, and interactive 3D virtual runway simulations. Upload your own sketches to the public gallery or drape them instantly onto 3D models.
-            </p>
+            <!-- Right: Editorial Narrative & Brand Story -->
+            <div class="hero-story-col">
+                <span class="story-kicker">Atelier Vidushi &bull; Official Couture House</span>
+                <h1 class="story-headline">Elegance Woven <em>into Art</em></h1>
+                <p class="story-subtitle">Timeless Haute Couture, Royal Heritage Drapes &amp; Bespoke Silhouettes</p>
+                
+                <p class="story-body-text">
+                    Welcome to the atelier of <strong>Vidushi</strong>—where every stitch is an ode to individuality and artistic expression. Born out of an unwavering passion for bespoke craftsmanship, Vidushi blends royal Indian zardozi heritage with effortless modern silhouettes. From hand-drawn croquis sketches to meticulously tailored velvet ballgowns and fluid cocktail sarees, each creation is crafted to celebrate beauty, confidence, and quiet luxury.
+                </p>
 
-            <!-- 4 Aesthetic Quick Options -->
-            <div class="hero-options-row">
-                <a href="#all-designs" class="hero-opt-btn primary">All Design</a>
-                <a href="#view-3d" class="hero-opt-btn">3D Runway</a>
-                <a href="#community-hub" class="hero-opt-btn">Design Hub</a>
-                <a href="#contact" class="hero-opt-btn">Contact</a>
+                <!-- 4 Quick Actions -->
+                <div class="hero-actions-grid">
+                    <a href="#shop" class="hero-btn primary">
+                        <span>🛍️ Buy Designs</span>
+                    </a>
+                    <a href="#post-design" class="hero-btn secondary">
+                        <span>➕ Post a Design</span>
+                    </a>
+                    <a href="#collections" class="hero-btn secondary">
+                        <span>👗 View Lookbook</span>
+                    </a>
+                    <a href="#contact" class="hero-btn secondary">
+                        <span>✉️ Bespoke Orders</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. ALL DESIGNS (CURATED EDITORIAL LOOKBOOK) -->
-    <section class="section-wrapper" id="all-designs">
+    <!-- 2. ATELIER BOUTIQUE & SHOP (BUY DESIGNS ONLINE) -->
+    <section class="section-wrapper shop-section" id="shop">
         <div class="section-header-minimal">
-            <span class="section-num">01 / Curated Lookbook</span>
-            <h2 class="section-title-serif">Signature Creations</h2>
-            <p class="section-subtitle-italic">Architectural Eveningwear, Draped Heritage &amp; Bespoke Tailoring</p>
+            <span class="section-num">01 / Atelier Store</span>
+            <h2 class="section-title-serif">Boutique &amp; Buyable Designs</h2>
+            <p class="section-subtitle-italic">Explore ready-to-wear couture pieces and made-to-measure orders directly from Vidushi</p>
         </div>
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-            <button class="filter-link active" data-filter="all">All Looks (7)</button>
-            <button class="filter-link" data-filter="couture">Haute Couture</button>
-            <button class="filter-link" data-filter="bridal">Heritage Bridal</button>
-            <button class="filter-link" data-filter="pret">Tailoring</button>
+        <!-- Filter Bar & Count -->
+        <div class="shop-top-bar">
+            <div class="shop-filter-pills">
+                <button class="shop-filter-btn active" data-filter="all">All Designs</button>
+                <button class="shop-filter-btn" data-filter="Haute Couture">Haute Couture</button>
+                <button class="shop-filter-btn" data-filter="Heritage Bridal">Heritage Bridal</button>
+                <button class="shop-filter-btn" data-filter="Tailoring">Tailoring</button>
+            </div>
+            <span class="shop-count-tag" id="shop-count-tag">Loading catalog...</span>
         </div>
 
-        <!-- Lookbook Grid -->
+        <!-- Dynamic Store Grid (Rendered via frontpage.js with Buy Buttons) -->
+        <div class="shop-products-grid" id="shop-grid">
+            <!-- Populated dynamically via frontpage.js -->
+        </div>
+    </section>
+
+    <!-- 3. POST & SELL YOUR DESIGN -->
+    <section class="section-wrapper post-design-section" id="post-design">
+        <div class="section-header-minimal">
+            <span class="section-num">02 / Creator Studio</span>
+            <h2 class="section-title-serif">Post a New Design</h2>
+            <p class="section-subtitle-italic">Upload your fashion sketches or finished garments to list them live in the boutique store for customers to buy</p>
+        </div>
+
+        <div class="post-card-container">
+            <form id="post-design-form" class="post-form-grid" onsubmit="return false;">
+                <!-- Image Upload Dropzone -->
+                <div class="post-field-group">
+                    <label>Design Photo / Sketch Upload</label>
+                    <div class="post-upload-dropzone" id="post-dropzone">
+                        <div class="post-drop-icon">📸</div>
+                        <h4 class="post-drop-title">Drop Sketch or Outfit Photo Here or Browse</h4>
+                        <p class="post-drop-sub">PNG, JPG, WebP up to 15MB</p>
+                        <input type="file" id="post-file-input" accept="image/*" style="display: none;">
+                        <img id="post-preview-thumb" class="post-preview-thumb" alt="Upload Preview">
+                    </div>
+                </div>
+
+                <div class="post-row-2col">
+                    <div class="post-field-group">
+                        <label for="post-title">Design Title *</label>
+                        <input type="text" id="post-title" placeholder="e.g. Royal Emerald Corset Gown" required>
+                    </div>
+
+                    <div class="post-field-group">
+                        <label for="post-designer">Designer Name</label>
+                        <input type="text" id="post-designer" value="Vidushi" required>
+                    </div>
+                </div>
+
+                <div class="post-row-2col">
+                    <div class="post-field-group">
+                        <label for="post-category">Collection Category</label>
+                        <select id="post-category">
+                            <option value="Haute Couture">Haute Couture</option>
+                            <option value="Heritage Bridal">Heritage Bridal</option>
+                            <option value="Tailoring">Bespoke Tailoring</option>
+                            <option value="Cocktail Drapes">Cocktail &amp; Draped Sarees</option>
+                            <option value="Avant-Garde">Avant-Garde Concept</option>
+                        </select>
+                    </div>
+
+                    <div class="post-field-group">
+                        <label for="post-price">Price (₹ INR) *</label>
+                        <input type="number" id="post-price" placeholder="e.g. 34500" min="500" required>
+                    </div>
+                </div>
+
+                <div class="post-row-2col">
+                    <div class="post-field-group">
+                        <label for="post-sizes">Available Sizes</label>
+                        <input type="text" id="post-sizes" value="XS, S, M, L, Made-to-measure" placeholder="e.g. S, M, L, Custom">
+                    </div>
+
+                    <div class="post-field-group">
+                        <label for="post-stock">Order Type</label>
+                        <select id="post-stock">
+                            <option value="In Stock (Ready to Ship)">In Stock (Ready to Ship)</option>
+                            <option value="Made-to-Order (7-14 Days)">Made-to-Order (7-14 Days)</option>
+                            <option value="Exclusive Bespoke Commission">Exclusive Bespoke Commission</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="post-field-group">
+                    <label for="post-fabric">Fabric &amp; Embellishment Details</label>
+                    <textarea id="post-fabric" rows="3" placeholder="Describe the silk quality, hand-embroidery, zardozi work, or custom tailoring notes..."></textarea>
+                </div>
+
+                <button type="button" id="btn-publish-design" class="btn-publish-design">
+                    Publish to Boutique Store &amp; Sell ✨
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. CURATED COLLECTIONS (LOOKBOOK ARCHIVE) -->
+    <section class="section-wrapper" id="collections">
+        <div class="section-header-minimal">
+            <span class="section-num">03 / Signature Archive</span>
+            <h2 class="section-title-serif">Curated Collections</h2>
+            <p class="section-subtitle-italic">Architectural Eveningwear, Draped Heritage &amp; Bespoke Tailoring by Vidushi</p>
+        </div>
+
         <div class="lookbook-grid">
             <!-- Look 1 -->
             <article class="lookbook-card" data-category="couture">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Nocturne Emerald Velvet Ballgown', 'assets/look1_emerald_velvet_ballgown.jpg')">
                     <img src="assets/look1_emerald_velvet_ballgown.jpg" alt="Nocturne Emerald Velvet Ballgown">
                     <span class="lookbook-category-tag">Haute Couture</span>
                 </div>
@@ -124,15 +237,17 @@
                         Deep emerald green silk velvet ballgown with antique gold filigree embroidery, structured sweetheart corset, and cathedral train.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="eveningGown">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Nocturne Emerald Velvet Gown', 'assets/look1_emerald_velvet_ballgown.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹38,500</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Nocturne Emerald Velvet Gown', 'assets/look1_emerald_velvet_ballgown.jpg', 38500, 'Haute Couture')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 2 -->
             <article class="lookbook-card" data-category="bridal">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Royal Zardozi Heritage Lehenga', 'assets/look2_ivory_gold_lehenga.jpg')">
                     <img src="assets/look2_ivory_gold_lehenga.jpg" alt="Royal Zardozi Heritage Lehenga">
                     <span class="lookbook-category-tag">Heritage Bridal</span>
                 </div>
@@ -142,15 +257,17 @@
                         Champagne ivory pure silk lehenga with 24K antique gold zardozi, dabka, and pearl embroidery with scalloped organza dupatta.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Royal Zardozi Heritage Lehenga', 'assets/look2_ivory_gold_lehenga.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹75,000</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Royal Zardozi Heritage Lehenga', 'assets/look2_ivory_gold_lehenga.jpg', 75000, 'Heritage Bridal')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 3 -->
             <article class="lookbook-card" data-category="pret">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Solaris Pagoda Power Blazer', 'assets/look3_architectural_blazer.jpg')">
                     <img src="assets/look3_architectural_blazer.jpg" alt="Solaris Pagoda Power Blazer Set">
                     <span class="lookbook-category-tag">Bespoke Tailoring</span>
                 </div>
@@ -160,17 +277,19 @@
                         Extreme sharp flared pagoda shoulders in jet black wool crepe with lustrous duchess satin lapels, cigarette trousers, and cape.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="blazerSet">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Solaris Pagoda Power Blazer', 'assets/look3_architectural_blazer.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹24,000</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Solaris Pagoda Power Blazer', 'assets/look3_architectural_blazer.jpg', 24000, 'Bespoke Tailoring')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 4 -->
             <article class="lookbook-card" data-category="bridal">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Blush Rose Cocktail Saree', 'assets/look4_blush_draped_saree.jpg')">
                     <img src="assets/look4_blush_draped_saree.jpg" alt="Blush Rose Cocktail Draped Saree">
-                    <span class="lookbook-category-tag">Heritage Couture</span>
+                    <span class="lookbook-category-tag">Cocktail Drapes</span>
                 </div>
                 <div class="lookbook-details">
                     <h3 class="lookbook-title">Blush Rose Cocktail Saree</h3>
@@ -178,15 +297,17 @@
                         Liquid asymmetric pre-pleated drape in blush pink georgette with micro-pearl borders and structured metallic rose gold corset blouse.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Blush Rose Cocktail Saree', 'assets/look4_blush_draped_saree.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹32,000</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Blush Rose Cocktail Saree', 'assets/look4_blush_draped_saree.jpg', 32000, 'Cocktail Drapes')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 5 -->
             <article class="lookbook-card" data-category="couture">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Midnight Sapphire Starlight Gown', 'assets/look5_sapphire_starlight_gown.jpg')">
                     <img src="assets/look5_sapphire_starlight_gown.jpg" alt="Midnight Sapphire Starlight Gown">
                     <span class="lookbook-category-tag">Haute Couture</span>
                 </div>
@@ -196,15 +317,17 @@
                         Deep midnight navy silk tulle ballgown with hand-embroidered Swarovski crystal constellations, silver starbursts, and boned corset.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="eveningGown">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Midnight Sapphire Starlight Gown', 'assets/look5_sapphire_starlight_gown.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹45,000</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Midnight Sapphire Starlight Gown', 'assets/look5_sapphire_starlight_gown.jpg', 45000, 'Haute Couture')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 6 -->
             <article class="lookbook-card" data-category="bridal">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Crimson Raw Silk Royal Anarkali', 'assets/look6_crimson_royal_anarkali.jpg')">
                     <img src="assets/look6_crimson_royal_anarkali.jpg" alt="Crimson Raw Silk Royal Anarkali">
                     <span class="lookbook-category-tag">Royal Heritage</span>
                 </div>
@@ -214,15 +337,17 @@
                         Pure crimson red raw silk flared silhouette with high mandarin collar, antique gold buttons, intricate zardozi hem, and sheer dupatta.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="saree">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Crimson Raw Silk Royal Anarkali', 'assets/look6_crimson_royal_anarkali.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹29,500</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Crimson Raw Silk Royal Anarkali', 'assets/look6_crimson_royal_anarkali.jpg', 29500, 'Royal Heritage')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
 
             <!-- Look 7 -->
             <article class="lookbook-card" data-category="couture">
-                <div class="lookbook-media-wrap">
+                <div class="lookbook-media-wrap" onclick="openLightbox('Lavender Cloud Wave Gown', 'assets/look7_lavender_cloud_gown.jpg')">
                     <img src="assets/look7_lavender_cloud_gown.jpg" alt="Lavender Cloud Met Gala Gown">
                     <span class="lookbook-category-tag">Avant-Garde</span>
                 </div>
@@ -232,199 +357,100 @@
                         Multi-tiered cascading micro-ruffles in misty lavender and pastel lilac sheer silk organza with sculpted architectural wave bodice.
                     </p>
                     <div class="lookbook-footer">
-                        <a href="#view-3d" class="lookbook-3d-link" data-garment="avantGarde">View in 3D &rarr;</a>
-                        <button class="lookbook-zoom-btn" onclick="openLightbox('Lavender Cloud Wave Gown', 'assets/look7_lavender_cloud_gown.jpg')">Detail Spec</button>
+                        <span class="shop-price-amount">₹42,000</span>
+                        <button type="button" class="btn-order-look" onclick="openOrderModal('Lavender Cloud Wave Gown', 'assets/look7_lavender_cloud_gown.jpg', 42000, 'Avant-Garde')">
+                            Order Piece &rarr;
+                        </button>
                     </div>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- 3. 3D DESIGN RUNWAY (CLEAN & AESTHETIC SIMULATION) -->
-    <section class="runway-section" id="view-3d">
-        <div class="section-wrapper" style="padding-bottom: 0;">
-            <div class="section-header-minimal">
-                <span class="section-num">02 / 3D Virtual Runway</span>
-                <h2 class="section-title-serif">Interactive Simulation</h2>
-                <p class="section-subtitle-italic">Real-Time Draping, Luxury Fabric Physics &amp; Silhouette Testing</p>
+    <!-- 5. ABOUT VIDUSHI (DESIGN PHILOSOPHY & STORY) -->
+    <section class="section-wrapper about-section" id="about">
+        <div class="about-grid-clean">
+            <div class="about-portrait-wrap">
+                <img src="assets/vidushi_profile_hd.png" alt="Vidushi Designing in Atelier">
             </div>
 
-            <div class="runway-viewport-box">
-                <!-- 3D Canvas -->
-                <div class="runway-canvas-wrap">
-                    <div id="front-studio-viewport"></div>
-                    <div class="runway-overlay-hint">
-                        <span>Click &amp; Drag to Orbit 360&deg;</span>
-                    </div>
+            <div class="about-content-col">
+                <span class="section-num">04 / The Designer</span>
+                <h2 class="section-title-serif">Meet Vidushi</h2>
+                <p class="section-subtitle-italic">Crafting Bespoke Couture with Heart, Grace &amp; Precision</p>
+
+                <div class="about-quote-box">
+                    <p>
+                        "Fashion is not simply about wearing a garment; it is about feeling untouchable, radiant, and truly yourself in every room you enter."
+                    </p>
                 </div>
 
-                <!-- Controls Panel -->
-                <aside class="runway-controls-panel">
-                    <div>
-                        <span class="ctrl-group-title">1. Silhouette</span>
-                        <div class="ctrl-btn-grid">
-                            <button class="ctrl-pill-btn v3d-garment-btn active" data-garment="eveningGown">Gown</button>
-                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="saree">Saree</button>
-                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="blazerSet">Blazer</button>
-                            <button class="ctrl-pill-btn v3d-garment-btn" data-garment="avantGarde">Avant-Garde</button>
-                        </div>
-                    </div>
+                <p style="font-size: 14.5px; color: #555555; line-height: 1.8; margin-bottom: 20px;">
+                    Every collection at Atelier Vidushi begins on pure white paper with hand-drawn graphite croquis. Drawing inspiration from royal Indian heritage architecture, floral motifs, and global runway tailoring, Vidushi personally curates the purest mulberry silks, rich velvets, and hand-woven organzas.
+                </p>
 
-                    <div>
-                        <span class="ctrl-group-title">2. Fabric Finish</span>
-                        <div class="ctrl-btn-grid">
-                            <button class="ctrl-pill-btn v3d-fabric-btn active" data-fabric="silk">Silk</button>
-                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="velvet">Velvet</button>
-                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="organza">Organza</button>
-                            <button class="ctrl-pill-btn v3d-fabric-btn" data-fabric="metallic">Lurex</button>
-                        </div>
-                    </div>
+                <p style="font-size: 14.5px; color: #555555; line-height: 1.8; margin-bottom: 28px;">
+                    Whether it is a custom bridal lehenga, an architectural power blazer, or an ethereal red-carpet evening gown, each silhouette is tailored to the client's individual measurements, ensuring bespoke luxury that lasts a lifetime.
+                </p>
 
-                    <div class="ctrl-row-inline">
-                        <span class="ctrl-label-inline">Garment Color</span>
-                        <input type="color" id="v3d-color-picker" value="#d4af37" style="border: none; width: 28px; height: 28px; cursor: pointer; background: none;">
-                    </div>
-
-                    <div class="ctrl-row-inline">
-                        <span class="ctrl-label-inline">Runway Breeze</span>
-                        <input type="checkbox" id="v3d-breeze-toggle" checked style="cursor: pointer; width: 16px; height: 16px; accent-color: #111111;">
-                    </div>
-
-                    <button type="button" id="v3d-snapshot-btn" class="action-solid-btn">
-                        Capture Snapshot
-                    </button>
-
-                    <a href="studio.html" class="studio-launch-link" target="_blank">
-                        Open Full CAD &amp; Pattern Studio &rarr;
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <a href="#shop" class="hero-btn primary" style="padding: 12px 20px;">
+                        <span>🛍️ Browse Store</span>
                     </a>
-                </aside>
-            </div>
-        </div>
-        <div style="height: 120px;"></div>
-    </section>
-
-    <!-- 4. DESIGN HUB & PUBLIC SHOWCASE (SIMPLE & SLEEK) -->
-    <section class="section-wrapper" id="community-hub">
-        <div class="section-header-minimal">
-            <span class="section-num">03 / Collaborative Atelier</span>
-            <h2 class="section-title-serif">Design Hub &amp; Public Showcase</h2>
-            <p class="section-subtitle-italic">Upload your fashion sketches &bull; Publicly showcased for everyone to view in 3D</p>
-        </div>
-
-        <div class="hub-layout-clean">
-            <!-- Left: Minimalist Upload Form -->
-            <div class="hub-upload-card-clean">
-                <h3 class="hub-card-heading">Upload Design</h3>
-                <p class="hub-card-sub">Upload croquis drawings, hand sketches, or CAD concepts to display publicly.</p>
-
-                <!-- Dropzone -->
-                <div class="hub-drop-area" id="hub-dropzone">
-                    <p class="drop-title">Drop Sketch Here or Browse</p>
-                    <p class="drop-sub">PNG, JPG, SVG, WebP</p>
-                    <input type="file" id="hub-file-input" accept="image/*" style="display: none;">
-                    <img id="hub-preview-thumb" class="hub-thumb-preview" alt="Preview">
-                </div>
-
-                <div class="hub-field-group">
-                    <label for="hub-title">Design Title</label>
-                    <input type="text" id="hub-title" placeholder="e.g. Royal Emerald Corset Drape">
-                </div>
-
-                <div class="hub-field-group">
-                    <label for="hub-designer">Designer Name</label>
-                    <input type="text" id="hub-designer" value="Vidushi">
-                </div>
-
-                <div class="hub-field-group">
-                    <label for="hub-category">Category</label>
-                    <select id="hub-category">
-                        <option value="Haute Couture">Haute Couture</option>
-                        <option value="Heritage Bridal">Heritage Bridal</option>
-                        <option value="Tailoring">Tailoring</option>
-                        <option value="Eveningwear">Eveningwear</option>
-                    </select>
-                </div>
-
-                <div class="hub-field-group">
-                    <label for="hub-garment-type">3D Silhouette</label>
-                    <select id="hub-garment-type">
-                        <option value="eveningGown">Evening Gown</option>
-                        <option value="saree">Royal Saree</option>
-                        <option value="blazerSet">Tailored Blazer</option>
-                        <option value="avantGarde">Avant-Garde</option>
-                    </select>
-                </div>
-
-                <div class="hub-field-group">
-                    <label for="hub-fabric">Fabric &amp; Details</label>
-                    <textarea id="hub-fabric" rows="2" placeholder="e.g. Pure mulberry silk with metallic threadwork"></textarea>
-                </div>
-
-                <button type="button" id="hub-publish-btn" class="action-solid-btn">
-                    Publish to Public Gallery
-                </button>
-            </div>
-
-            <!-- Right: Public Gallery Showcase -->
-            <div class="hub-gallery-column">
-                <div class="hub-gallery-top">
-                    <h3 class="hub-gallery-title">Public Showcase</h3>
-                    <span class="hub-count-label" id="hub-count-tag">Loading...</span>
-                </div>
-
-                <div class="hub-items-grid" id="hub-cards-grid">
-                    <!-- Populated dynamically via frontpage.js -->
+                    <a href="#contact" class="hero-btn secondary" style="padding: 12px 20px;">
+                        <span>Book Private Fitting &rarr;</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. CONTACT SECTION (BESPOKE APPOINTMENTS) -->
-    <section class="section-wrapper" id="contact" style="background: #fafaf8; border-top: 1px solid var(--border-color);">
+    <!-- 6. CONTACT / BESPOKE ORDERS -->
+    <section class="section-wrapper contact-section-clean" id="contact">
         <div class="section-header-minimal">
-            <span class="section-num">04 / Appointments</span>
-            <h2 class="section-title-serif">Bespoke Inquiries</h2>
-            <p class="section-subtitle-italic">Private consultations with Vidushi for bridal couture, red carpet styling, and 3D digital fashion.</p>
+            <span class="section-num">05 / Bespoke Commissions</span>
+            <h2 class="section-title-serif">Contact Vidushi</h2>
+            <p class="section-subtitle-italic">Inquire about custom bridal trousseaus, private atelier appointments, or bespoke tailoring</p>
         </div>
 
-        <div class="contact-wrap-clean">
+        <div class="contact-card-wrap">
             <form id="front-contact-form" class="contact-form-clean">
-                <div class="form-2col">
-                    <div class="input-group-clean">
-                        <label for="cf-name">Your Name</label>
-                        <input type="text" id="cf-name" placeholder="Full name" required>
+                <div class="post-row-2col">
+                    <div class="post-field-group">
+                        <label for="cf-name">Client Name *</label>
+                        <input type="text" id="cf-name" placeholder="Your full name" required>
                     </div>
 
-                    <div class="input-group-clean">
-                        <label for="cf-email">Email Address</label>
-                        <input type="email" id="cf-email" placeholder="name@example.com" required>
+                    <div class="post-field-group">
+                        <label for="cf-email">Email or WhatsApp *</label>
+                        <input type="text" id="cf-email" placeholder="Email or Phone Number" required>
                     </div>
                 </div>
 
-                <div class="form-2col">
-                    <div class="input-group-clean">
-                        <label for="cf-type">Commission Type</label>
+                <div class="post-row-2col">
+                    <div class="post-field-group">
+                        <label for="cf-type">Occasion / Outfit Type</label>
                         <select id="cf-type">
-                            <option value="Bridal Couture">Bridal Couture &amp; Trousseau</option>
-                            <option value="Evening Ballgown">Red Carpet Evening Gown</option>
-                            <option value="Bespoke Tailoring">Bespoke Tailored Blazer</option>
-                            <option value="3D Digital Fashion">3D Digital Garment CAD</option>
+                            <option value="Bridal Lehenga & Trousseau">Bridal Lehenga &amp; Trousseau</option>
+                            <option value="Red Carpet Evening Gown">Red Carpet Evening Gown</option>
+                            <option value="Custom Cocktail Saree">Custom Cocktail Saree</option>
+                            <option value="Bespoke Power Blazer">Bespoke Tailored Blazer Set</option>
                         </select>
                     </div>
 
-                    <div class="input-group-clean">
-                        <label for="cf-date">Target Date</label>
+                    <div class="post-field-group">
+                        <label for="cf-date">Target Event Date</label>
                         <input type="date" id="cf-date">
                     </div>
                 </div>
 
-                <div class="input-group-clean">
-                    <label for="cf-notes">Design Vision &amp; Fabric Notes</label>
-                    <textarea id="cf-notes" rows="4" placeholder="Share your silhouette ideas, color palettes, or embroidery preferences..."></textarea>
+                <div class="post-field-group">
+                    <label for="cf-notes">Design Vision &amp; Measurement Details</label>
+                    <textarea id="cf-notes" rows="4" placeholder="Tell Vidushi about your dream silhouette, favorite color, fabric preference, or any custom ideas..."></textarea>
                 </div>
 
-                <button type="submit" class="action-solid-btn">
-                    Send Inquiry to Vidushi
+                <button type="submit" class="contact-submit-btn">
+                    Send Bespoke Inquiry to Vidushi ✨
                 </button>
             </form>
         </div>
@@ -434,10 +460,10 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div>
-                <strong>VIDUSHI</strong> &bull; Haute Couture &amp; 3D Fashion Atelier
+                <strong>ATELIER VIDUSHI</strong> &bull; Haute Couture &amp; Bespoke Fashion
             </div>
             <div>
-                Portfolio Archive 2026–2027
+                Curated with love for Vidushi &bull; 2026–2027
             </div>
             <div>
                 <a href="#hero">Back to Top &uarr;</a>
@@ -445,23 +471,94 @@
         </div>
     </footer>
 
-    <!-- LIGHTBOX MODAL -->
-    <div class="modal-overlay" id="lightbox-modal">
-        <div class="modal-box-clean">
-            <div class="modal-top-bar">
-                <h3 class="modal-heading" id="lightbox-title">Design Preview</h3>
-                <button class="modal-close-trigger" onclick="closeLightbox()">&times;</button>
+    <!-- CHECKOUT / ORDER PURCHASE MODAL -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="checkout-dialog">
+            <div class="checkout-header">
+                <h3>Order Bespoke Design</h3>
+                <button type="button" class="checkout-close-btn" id="close-order-modal-btn">&times;</button>
             </div>
-            <div class="modal-img-container">
+
+            <div class="checkout-body">
+                <!-- Item Summary -->
+                <div class="checkout-item-preview">
+                    <img src="" id="order-item-img" class="checkout-thumb" alt="Product Thumbnail">
+                    <div class="checkout-item-meta">
+                        <h4 id="order-item-title">Design Title</h4>
+                        <span id="order-item-cat" style="font-size: 11px; text-transform: uppercase; color: #777;">Category</span>
+                        <div class="order-price-val" id="order-item-price">₹0</div>
+                    </div>
+                </div>
+
+                <form id="order-checkout-form" onsubmit="return false;">
+                    <div class="post-row-2col">
+                        <div class="post-field-group">
+                            <label for="order-size-select">Select Size *</label>
+                            <select id="order-size-select">
+                                <option value="S (Bust 34, Waist 28)">S (Bust 34", Waist 28")</option>
+                                <option value="M (Bust 36, Waist 30)" selected>M (Bust 36", Waist 30")</option>
+                                <option value="L (Bust 38, Waist 32)">L (Bust 38", Waist 32")</option>
+                                <option value="XL (Bust 40, Waist 34)">XL (Bust 40", Waist 34")</option>
+                                <option value="Custom Fit (Send Measurements)">Custom Fit (Made to Measure)</option>
+                            </select>
+                        </div>
+
+                        <div class="post-field-group">
+                            <label for="order-cust-name">Your Full Name *</label>
+                            <input type="text" id="order-cust-name" placeholder="Your name" required>
+                        </div>
+                    </div>
+
+                    <div class="post-row-2col">
+                        <div class="post-field-group">
+                            <label for="order-cust-phone">WhatsApp / Phone *</label>
+                            <input type="tel" id="order-cust-phone" placeholder="+91 98765 43210" required>
+                        </div>
+
+                        <div class="post-field-group">
+                            <label for="order-cust-city">Delivery City / Pin Code *</label>
+                            <input type="text" id="order-cust-city" placeholder="e.g. Mumbai, 400001" required>
+                        </div>
+                    </div>
+
+                    <div class="post-field-group">
+                        <label for="order-cust-address">Delivery Address *</label>
+                        <textarea id="order-cust-address" rows="2" placeholder="Full delivery address..." required></textarea>
+                    </div>
+
+                    <div class="post-field-group">
+                        <label for="order-cust-notes">Custom Measurements &amp; Notes (Optional)</label>
+                        <textarea id="order-cust-notes" rows="2" placeholder="Height, specific alterations, or date needed by..."></textarea>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="checkout-actions-row">
+                        <button type="button" class="btn-whatsapp-order" id="btn-whatsapp-order">
+                            <span>💬 Order via WhatsApp</span>
+                        </button>
+                        <button type="button" class="btn-confirm-order" id="btn-confirm-order">
+                            <span>Confirm Order ✨</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX ZOOM MODAL -->
+    <div class="modal-overlay" id="lightbox-modal">
+        <div class="lightbox-dialog">
+            <div class="checkout-header">
+                <h3 id="lightbox-title">Design Preview</h3>
+                <button type="button" class="checkout-close-btn" onclick="closeLightbox()">&times;</button>
+            </div>
+            <div class="lightbox-img-wrap">
                 <img src="" id="lightbox-img" alt="Zoomed View">
             </div>
         </div>
     </div>
 
     <!-- SCRIPTS -->
-    <script src="js/patterns.js"></script>
-    <script src="js/three-scene.js"></script>
-    <script src="js/sketch-uploader.js"></script>
     <script src="frontpage.js"></script>
 </body>
 </html>

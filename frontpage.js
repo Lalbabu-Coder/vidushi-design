@@ -1,491 +1,518 @@
 /**
- * Atelier Vidushi - Master Front Page Controller
- * Clean, Minimal & High-Fashion Aesthetic
+ * Atelier Vidushi - Front Page & Boutique E-Commerce Controller
+ * Manages:
+ * 1. Vidushi's Designer Profile & Editorial Hero
+ * 2. Boutique Store (Browse & Buy Designs Online)
+ * 3. Instant Checkout & WhatsApp Order Modal
+ * 4. Post New Design (Upload & List for Sale)
+ * 5. Curated Lookbook & Lightbox
+ * 6. Bespoke Consultations & Mobile Navigation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
-    // 1. MINIMAL TOAST HELPER
+    // 1. AUDIO CHIMES & NOTIFICATION HELPER
     // ==========================================
+    const AudioCues = {
+        ctx: null,
+        init() {
+            if (!this.ctx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) this.ctx = new AudioContext();
+            }
+        },
+        playChime() {
+            try {
+                this.init();
+                if (!this.ctx) return;
+                const freqs = [523.25, 659.25, 783.99, 1046.50];
+                freqs.forEach((f, i) => {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.06);
+                    gain.gain.setValueAtTime(0.12, this.ctx.currentTime + i * 0.06);
+                    gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.06 + 0.35);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(this.ctx.currentTime + i * 0.06);
+                    osc.stop(this.ctx.currentTime + i * 0.06 + 0.4);
+                });
+            } catch (e) {}
+        }
+    };
+
     const showToast = (message) => {
         const toast = document.getElementById('toast-notice');
         if (!toast) return;
         toast.innerText = message;
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3200);
+        setTimeout(() => toast.classList.remove('show'), 3400);
     };
 
     // ==========================================
-    // 1.1 HERO VIEW QUALITY SWITCHER
+    // 2. ATELIER BOUTIQUE STORE (BUY DESIGNS)
     // ==========================================
-    const heroImg = document.getElementById('hero-img-element');
-    const switcherBtns = document.querySelectorAll('.hero-switcher-btn');
-    switcherBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            switcherBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const targetSrc = btn.dataset.img;
-            if (heroImg && targetSrc) {
-                heroImg.style.opacity = '0.3';
-                setTimeout(() => {
-                    heroImg.src = targetSrc;
-                    heroImg.style.opacity = '0.88';
-                }, 200);
-                showToast(`Switched view to ${btn.innerText.trim()}`);
-            }
-        });
-    });
-
-    // ==========================================
-    // 2. INITIALIZE 3D RUNWAY STUDIO
-    // ==========================================
-    let studio = null;
-    let sketchStudio = null;
-
-    if (typeof FashionStudio !== 'undefined' && document.getElementById('front-studio-viewport')) {
-        studio = new FashionStudio('front-studio-viewport');
-        if (typeof SketchStudio !== 'undefined') {
-            sketchStudio = new SketchStudio(studio);
-        }
-    }
-
-    // 3D Silhouette Buttons
-    const v3dGarmentBtns = document.querySelectorAll('.v3d-garment-btn');
-    v3dGarmentBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            v3dGarmentBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const garment = btn.dataset.garment;
-            if (studio) {
-                studio.setGarment(garment);
-                showToast(`Silhouette changed to ${btn.innerText.trim()}`);
-            }
-        });
-    });
-
-    // 3D Fabric Buttons
-    const v3dFabricBtns = document.querySelectorAll('.v3d-fabric-btn');
-    v3dFabricBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            v3dFabricBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const fabric = btn.dataset.fabric;
-            if (studio) {
-                studio.setFabricType(fabric);
-                showToast(`Fabric finish: ${btn.innerText.trim()}`);
-            }
-        });
-    });
-
-    // 3D Color Picker
-    const v3dColorPicker = document.getElementById('v3d-color-picker');
-    if (v3dColorPicker) {
-        v3dColorPicker.addEventListener('input', (e) => {
-            if (studio) studio.setBaseColor(e.target.value);
-        });
-    }
-
-    // 3D Breeze Toggle
-    const v3dBreezeToggle = document.getElementById('v3d-breeze-toggle');
-    if (v3dBreezeToggle) {
-        v3dBreezeToggle.addEventListener('change', (e) => {
-            if (studio) {
-                studio.toggleWind(e.target.checked);
-                showToast(e.target.checked ? 'Runway breeze enabled' : 'Breeze paused');
-            }
-        });
-    }
-
-    // 3D Snapshot Capture
-    const v3dSnapshotBtn = document.getElementById('v3d-snapshot-btn');
-    if (v3dSnapshotBtn) {
-        v3dSnapshotBtn.addEventListener('click', () => {
-            if (!studio) return;
-            const dataUrl = studio.captureRunwaySnapshot();
-            const link = document.createElement('a');
-            link.download = `Vidushi_Runway_${Date.now().toString().slice(-4)}.png`;
-            link.href = dataUrl;
-            link.click();
-            showToast('Snapshot captured and downloaded');
-        });
-    }
-
-    // ==========================================
-    // 3. LOOKBOOK FILTERING
-    // ==========================================
-    const filterLinks = document.querySelectorAll('.filter-link');
-    const lookbookCards = document.querySelectorAll('.lookbook-card');
-
-    filterLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            filterLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            const filter = link.dataset.filter;
-            lookbookCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'flex';
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.opacity = '1', 40);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // View in 3D buttons on lookbook cards
-    document.querySelectorAll('.lookbook-3d-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const garment = link.dataset.garment;
-            const section3d = document.getElementById('view-3d');
-            if (section3d) {
-                section3d.scrollIntoView({ behavior: 'smooth' });
-            }
-            if (studio && garment) {
-                studio.setGarment(garment);
-                v3dGarmentBtns.forEach(b => {
-                    b.classList.toggle('active', b.dataset.garment === garment);
-                });
-                showToast(`Viewing ${garment} in 3D Runway`);
-            }
-        });
-    });
-
-    // ==========================================
-    // 4. DESIGN HUB & PUBLIC SHOWCASE
-    // ==========================================
-    const DEFAULT_DESIGNS = [
+    const INITIAL_CATALOG = [
         {
-            id: 'des_1',
+            id: 'item_1',
             title: 'Nocturne Emerald Velvet Gown',
             designer: 'Vidushi',
             category: 'Haute Couture',
-            garment: 'eveningGown',
-            fabric: 'Deep emerald green silk velvet ballgown with antique gold filigree embroidery and cathedral train.',
-            image: 'assets/look1_emerald_velvet_ballgown.jpg',
-            likes: 54
+            price: 38500,
+            sizes: ['XS', 'S', 'M', 'L', 'Custom'],
+            stock: 'Made-to-Order (7-10 Days)',
+            fabric: 'Deep emerald green silk velvet with antique gold filigree embroidery, structured sweetheart corset, and cathedral train.',
+            image: 'assets/look1_emerald_velvet_ballgown.jpg'
         },
         {
-            id: 'des_2',
+            id: 'item_2',
             title: 'Royal Zardozi Heritage Lehenga',
             designer: 'Vidushi',
             category: 'Heritage Bridal',
-            garment: 'saree',
-            fabric: 'Champagne ivory pure silk lehenga with 24K antique gold zardozi, dabka, and pearl embroidery.',
-            image: 'assets/look2_ivory_gold_lehenga.jpg',
-            likes: 62
+            price: 75000,
+            sizes: ['Made-to-measure', 'S', 'M', 'L'],
+            stock: 'Bespoke Bridal Commission',
+            fabric: 'Champagne ivory pure silk lehenga with 24K antique gold zardozi, dabka, and pearl embroidery with scalloped organza dupatta.',
+            image: 'assets/look2_ivory_gold_lehenga.jpg'
         },
         {
-            id: 'des_3',
+            id: 'item_3',
             title: 'Solaris Pagoda Power Blazer',
             designer: 'Vidushi',
             category: 'Tailoring',
-            garment: 'blazerSet',
-            fabric: 'Extreme sharp flared pagoda shoulders in jet black wool crepe with duchess satin lapels.',
-            image: 'assets/look3_architectural_blazer.jpg',
-            likes: 47
+            price: 24000,
+            sizes: ['S', 'M', 'L'],
+            stock: 'Ready to Ship',
+            fabric: 'Extreme sharp flared pagoda shoulders in jet black wool crepe with lustrous duchess satin lapels and cigarette trousers.',
+            image: 'assets/look3_architectural_blazer.jpg'
         },
         {
-            id: 'des_4',
+            id: 'item_4',
             title: 'Blush Rose Cocktail Saree',
             designer: 'Vidushi',
-            category: 'Heritage Couture',
-            garment: 'saree',
-            fabric: 'Liquid asymmetric pre-pleated drape in blush pink georgette with micro-pearl borders.',
-            image: 'assets/look4_blush_draped_saree.jpg',
-            likes: 58
+            category: 'Cocktail Drapes',
+            price: 32000,
+            sizes: ['Free Size', 'Custom Blouse'],
+            stock: 'Made-to-Order',
+            fabric: 'Liquid asymmetric pre-pleated drape in blush pink georgette with micro-pearl borders and metallic corset blouse.',
+            image: 'assets/look4_blush_draped_saree.jpg'
         },
         {
-            id: 'des_5',
+            id: 'item_5',
             title: 'Midnight Sapphire Starlight Gown',
             designer: 'Vidushi',
             category: 'Haute Couture',
-            garment: 'eveningGown',
-            fabric: 'Deep midnight navy silk tulle ballgown with hand-embroidered Swarovski crystal constellations.',
-            image: 'assets/look5_sapphire_starlight_gown.jpg',
-            likes: 51
+            price: 45000,
+            sizes: ['XS', 'S', 'M', 'Custom'],
+            stock: 'Red Carpet Exclusive',
+            fabric: 'Deep midnight navy silk tulle ballgown with hand-embroidered Swarovski crystal constellations and sheer corset.',
+            image: 'assets/look5_sapphire_starlight_gown.jpg'
         },
         {
-            id: 'des_6',
+            id: 'item_6',
             title: 'Crimson Raw Silk Royal Anarkali',
             designer: 'Vidushi',
             category: 'Heritage Bridal',
-            garment: 'saree',
-            fabric: 'Pure crimson red raw silk flared silhouette with high mandarin collar and antique gold buttons.',
-            image: 'assets/look6_crimson_royal_anarkali.jpg',
-            likes: 65
+            price: 29500,
+            sizes: ['S', 'M', 'L', 'XL'],
+            stock: 'Ready to Ship',
+            fabric: 'Pure crimson red raw silk flared silhouette with high mandarin collar, antique gold buttons, and sheer dupatta.',
+            image: 'assets/look6_crimson_royal_anarkali.jpg'
         },
         {
-            id: 'des_7',
+            id: 'item_7',
             title: 'Lavender Cloud Wave Gown',
             designer: 'Vidushi',
             category: 'Avant-Garde',
-            garment: 'avantGarde',
+            price: 42000,
+            sizes: ['S', 'M', 'Custom fit'],
+            stock: 'Runway Special',
             fabric: 'Multi-tiered cascading micro-ruffles in misty lavender sheer silk organza with sculpted wave bodice.',
-            image: 'assets/look7_lavender_cloud_gown.jpg',
-            likes: 43
+            image: 'assets/look7_lavender_cloud_gown.jpg'
         }
     ];
 
-    const getDesigns = () => {
+    const getCatalog = () => {
         try {
-            const stored = localStorage.getItem('atelier_vidushi_community_designs_v2');
-            if (stored) {
-                const parsed = JSON.parse(stored);
+            const raw = localStorage.getItem('atelier_vidushi_store_catalog_v3');
+            if (raw) {
+                const parsed = JSON.parse(raw);
                 if (Array.isArray(parsed) && parsed.length > 0) return parsed;
             }
         } catch (e) {}
-        localStorage.setItem('atelier_vidushi_community_designs_v2', JSON.stringify(DEFAULT_DESIGNS));
-        return DEFAULT_DESIGNS;
+        localStorage.setItem('atelier_vidushi_store_catalog_v3', JSON.stringify(INITIAL_CATALOG));
+        return INITIAL_CATALOG;
     };
 
-    const saveDesigns = (list) => {
+    const saveCatalog = (list) => {
         try {
-            localStorage.setItem('atelier_vidushi_community_designs_v2', JSON.stringify(list));
+            localStorage.setItem('atelier_vidushi_store_catalog_v3', JSON.stringify(list));
         } catch (e) {}
     };
 
-    const renderHub = () => {
-        const grid = document.getElementById('hub-cards-grid');
-        const countTag = document.getElementById('hub-count-tag');
+    // Render Boutique Store Grid
+    const renderShop = (filter = 'all') => {
+        const grid = document.getElementById('shop-grid');
+        const countTag = document.getElementById('shop-count-tag');
         if (!grid) return;
 
-        const list = getDesigns();
-        if (countTag) countTag.innerText = `${list.length} Designs Published`;
+        const catalog = getCatalog();
+        const filtered = filter === 'all' ? catalog : catalog.filter(x => x.category === filter);
 
-        grid.innerHTML = list.map(item => `
-            <div class="hub-item-card" data-id="${item.id}">
-                <div class="hub-item-media">
-                    <img src="${item.image}" alt="${item.title}" onclick="openLightbox('${item.title.replace(/'/g, "\\'")}', '${item.image}')">
-                    <span class="hub-item-tag">${item.category || 'Haute Couture'}</span>
+        if (countTag) {
+            countTag.innerText = `${filtered.length} Designs Available to Buy`;
+        }
+
+        grid.innerHTML = filtered.map(item => `
+            <div class="shop-card" data-id="${item.id}" data-category="${item.category}">
+                <div class="shop-card-media" onclick="openLightbox('${item.title.replace(/'/g, "\\'")}', '${item.image}')">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <span class="shop-tag-category">${item.category || 'Haute Couture'}</span>
+                    <span class="shop-tag-stock">${item.stock || 'Made-to-Order'}</span>
                 </div>
-                <div class="hub-item-body">
-                    <span class="hub-item-designer">By ${item.designer || 'Vidushi'}</span>
-                    <h4 class="hub-item-title">${item.title}</h4>
-                    <p class="hub-item-desc">${item.fabric || 'Bespoke atelier creation.'}</p>
-                    <div class="hub-item-actions">
-                        <button type="button" class="hub-item-3d-btn" data-garment="${item.garment || 'eveningGown'}" data-img="${item.image}" data-title="${item.title}">
-                            View in 3D &rarr;
-                        </button>
-                        <button type="button" class="hub-like-trigger" data-id="${item.id}">
-                            &hearts; <span class="like-num">${item.likes || 1}</span>
+                <div class="shop-card-body">
+                    <span class="shop-card-designer">Design by ${item.designer || 'Vidushi'}</span>
+                    <h3 class="shop-card-title">${item.title}</h3>
+                    <p class="shop-card-desc">${item.fabric || 'Bespoke couture creation.'}</p>
+                    
+                    <div class="shop-sizes-row">
+                        <span class="size-label">Sizes:</span>
+                        ${(item.sizes || ['Custom']).map(s => `<span class="size-chip">${s}</span>`).join('')}
+                    </div>
+
+                    <div class="shop-card-footer">
+                        <div class="shop-price-col">
+                            <span class="price-sub">Boutique Price</span>
+                            <span class="shop-price-amount">₹${Number(item.price).toLocaleString('en-IN')}</span>
+                        </div>
+                        <button type="button" class="btn-buy-piece" onclick="openOrderModal('${item.title.replace(/'/g, "\\'")}', '${item.image}', ${item.price}, '${item.category}')">
+                            Buy Now &rarr;
                         </button>
                     </div>
                 </div>
             </div>
         `).join('');
-
-        // Wire 3D buttons
-        grid.querySelectorAll('.hub-item-3d-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const garment = btn.dataset.garment || 'eveningGown';
-                const imgSrc = btn.dataset.img;
-                const title = btn.dataset.title;
-
-                const sec3d = document.getElementById('view-3d');
-                if (sec3d) sec3d.scrollIntoView({ behavior: 'smooth' });
-
-                if (studio) {
-                    studio.setGarment(garment);
-                    v3dGarmentBtns.forEach(b => {
-                        b.classList.toggle('active', b.dataset.garment === garment);
-                    });
-
-                    if (imgSrc && sketchStudio) {
-                        fetch(imgSrc)
-                            .then(r => r.blob())
-                            .then(blob => {
-                                const f = new File([blob], "sketch.png", { type: blob.type || "image/png" });
-                                sketchStudio.loadImage(f);
-                            }).catch(() => {});
-                    }
-                    showToast(`Draping "${title}" on 3D Runway`);
-                }
-            });
-        });
-
-        // Wire Likes
-        grid.querySelectorAll('.hub-like-trigger').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.dataset.id;
-                const list = getDesigns();
-                const target = list.find(x => x.id === id);
-                if (target) {
-                    target.likes = (target.likes || 0) + 1;
-                    saveDesigns(list);
-                    const num = btn.querySelector('.like-num');
-                    if (num) num.innerText = target.likes;
-                }
-            });
-        });
     };
 
-    renderHub();
+    renderShop('all');
 
-    // Dropzone & File Input
-    const dropzone = document.getElementById('hub-dropzone');
-    const fileInput = document.getElementById('hub-file-input');
-    const previewThumb = document.getElementById('hub-preview-thumb');
-    let uploadedDataUrl = null;
+    // Filter Buttons in Shop
+    const shopFilterBtns = document.querySelectorAll('.shop-filter-btn');
+    shopFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            shopFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderShop(btn.dataset.filter);
+        });
+    });
 
-    if (dropzone && fileInput) {
-        dropzone.addEventListener('click', () => fileInput.click());
+    // ==========================================
+    // 3. CHECKOUT & ORDER PURCHASE MODAL
+    // ==========================================
+    const orderModal = document.getElementById('order-modal');
+    const orderItemImg = document.getElementById('order-item-img');
+    const orderItemTitle = document.getElementById('order-item-title');
+    const orderItemCat = document.getElementById('order-item-cat');
+    const orderItemPrice = document.getElementById('order-item-price');
+    const closeOrderBtn = document.getElementById('close-order-modal-btn');
+
+    let currentOrderItem = null;
+
+    window.openOrderModal = (title, image, price, category = 'Haute Couture') => {
+        currentOrderItem = { title, image, price, category };
+        if (orderItemTitle) orderItemTitle.innerText = title;
+        if (orderItemImg) orderItemImg.src = image;
+        if (orderItemCat) orderItemCat.innerText = category;
+        if (orderItemPrice) orderItemPrice.innerText = `₹${Number(price).toLocaleString('en-IN')}`;
+
+        if (orderModal) orderModal.classList.add('active');
+    };
+
+    window.closeOrderModal = () => {
+        if (orderModal) orderModal.classList.remove('active');
+    };
+
+    if (closeOrderBtn) closeOrderBtn.addEventListener('click', closeOrderModal);
+    if (orderModal) {
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) closeOrderModal();
+        });
+    }
+
+    // Direct WhatsApp Order
+    const btnWhatsAppOrder = document.getElementById('btn-whatsapp-order');
+    if (btnWhatsAppOrder) {
+        btnWhatsAppOrder.addEventListener('click', () => {
+            if (!currentOrderItem) return;
+
+            const custName = document.getElementById('order-cust-name').value.trim() || 'Client';
+            const size = document.getElementById('order-size-select').value;
+            const city = document.getElementById('order-cust-city').value.trim() || 'India';
+            const address = document.getElementById('order-cust-address').value.trim() || 'Direct WhatsApp';
+            const notes = document.getElementById('order-cust-notes').value.trim() || 'Standard';
+
+            const message = `Namaste Vidushi! ✨\n\nI want to order a design from your Atelier Boutique:\n` +
+                `👗 *Design:* ${currentOrderItem.title}\n` +
+                `💰 *Price:* ₹${Number(currentOrderItem.price).toLocaleString('en-IN')}\n` +
+                `📏 *Size:* ${size}\n` +
+                `👤 *Name:* ${custName}\n` +
+                `📍 *City:* ${city}\n` +
+                `🏡 *Address:* ${address}\n` +
+                `📝 *Notes:* ${notes}\n\nPlease confirm availability and payment details. Thank you!`;
+
+            const encoded = encodeURIComponent(message);
+            // Open WhatsApp (works with any number, fallback to web)
+            window.open(`https://api.whatsapp.com/send?text=${encoded}`, '_blank');
+            closeOrderModal();
+            showToast('Opening WhatsApp to connect with Vidushi! 💬✨');
+        });
+    }
+
+    // Confirm Instant Order Button
+    const btnConfirmOrder = document.getElementById('btn-confirm-order');
+    if (btnConfirmOrder) {
+        btnConfirmOrder.addEventListener('click', () => {
+            if (!currentOrderItem) return;
+
+            const nameInput = document.getElementById('order-cust-name');
+            const phoneInput = document.getElementById('order-cust-phone');
+            const addressInput = document.getElementById('order-cust-address');
+
+            if (!nameInput.value.trim()) {
+                showToast('Please enter your full name');
+                nameInput.focus();
+                return;
+            }
+            if (!phoneInput.value.trim()) {
+                showToast('Please enter your WhatsApp/Phone number');
+                phoneInput.focus();
+                return;
+            }
+            if (!addressInput.value.trim()) {
+                showToast('Please enter your delivery address');
+                addressInput.focus();
+                return;
+            }
+
+            const orderId = 'VID-' + Math.floor(1000 + Math.random() * 9000);
+            const orderData = {
+                orderId,
+                date: new Date().toLocaleDateString('en-IN'),
+                itemTitle: currentOrderItem.title,
+                itemPrice: currentOrderItem.price,
+                size: document.getElementById('order-size-select').value,
+                customerName: nameInput.value.trim(),
+                phone: phoneInput.value.trim(),
+                city: document.getElementById('order-cust-city').value.trim(),
+                address: addressInput.value.trim(),
+                notes: document.getElementById('order-cust-notes').value.trim()
+            };
+
+            try {
+                const existing = JSON.parse(localStorage.getItem('atelier_vidushi_orders') || '[]');
+                existing.unshift(orderData);
+                localStorage.setItem('atelier_vidushi_orders', JSON.stringify(existing));
+            } catch (err) {}
+
+            AudioCues.playChime();
+            showToast(`Order Placed! Order ID: #${orderId}. Vidushi's team will contact you. ✨`);
+            closeOrderModal();
+
+            // Reset checkout inputs
+            nameInput.value = '';
+            phoneInput.value = '';
+            addressInput.value = '';
+            document.getElementById('order-cust-city').value = '';
+            document.getElementById('order-cust-notes').value = '';
+        });
+    }
+
+    // ==========================================
+    // 4. POST NEW DESIGN & SELL
+    // ==========================================
+    const postDropzone = document.getElementById('post-dropzone');
+    const postFileInput = document.getElementById('post-file-input');
+    const postPreviewThumb = document.getElementById('post-preview-thumb');
+    let uploadedPostImageUrl = null;
+
+    if (postDropzone && postFileInput) {
+        postDropzone.addEventListener('click', () => postFileInput.click());
 
         ['dragenter', 'dragover'].forEach(name => {
-            dropzone.addEventListener(name, (e) => {
+            postDropzone.addEventListener(name, (e) => {
                 e.preventDefault();
-                dropzone.classList.add('drag-active');
+                postDropzone.classList.add('drag-active');
             });
         });
 
         ['dragleave', 'drop'].forEach(name => {
-            dropzone.addEventListener(name, (e) => {
+            postDropzone.addEventListener(name, (e) => {
                 e.preventDefault();
-                dropzone.classList.remove('drag-active');
+                postDropzone.classList.remove('drag-active');
             });
         });
 
-        const handleFile = (file) => {
+        const handlePostFile = (file) => {
             if (!file || !file.type.startsWith('image/')) {
-                showToast('Please select a valid image file');
+                showToast('Please select a valid image file (PNG, JPG, WebP)');
                 return;
             }
             const reader = new FileReader();
             reader.onload = (e) => {
-                uploadedDataUrl = e.target.result;
-                if (previewThumb) {
-                    previewThumb.src = uploadedDataUrl;
-                    previewThumb.style.display = 'block';
+                uploadedPostImageUrl = e.target.result;
+                if (postPreviewThumb) {
+                    postPreviewThumb.src = uploadedPostImageUrl;
+                    postPreviewThumb.style.display = 'block';
                 }
-                showToast(`"${file.name}" ready to publish`);
+                showToast(`"${file.name}" loaded! Ready to publish.`);
             };
             reader.readAsDataURL(file);
         };
 
-        dropzone.addEventListener('drop', (e) => {
+        postDropzone.addEventListener('drop', (e) => {
             if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-                handleFile(e.dataTransfer.files[0]);
+                handlePostFile(e.dataTransfer.files[0]);
             }
         });
 
-        fileInput.addEventListener('change', (e) => {
+        postFileInput.addEventListener('change', (e) => {
             if (e.target.files && e.target.files.length > 0) {
-                handleFile(e.target.files[0]);
+                handlePostFile(e.target.files[0]);
             }
         });
     }
 
-    // Publish Button
-    const publishBtn = document.getElementById('hub-publish-btn');
-    if (publishBtn) {
-        publishBtn.addEventListener('click', () => {
-            const titleInput = document.getElementById('hub-title');
-            const designerInput = document.getElementById('hub-designer');
-            const catInput = document.getElementById('hub-category');
-            const garmentInput = document.getElementById('hub-garment-type');
-            const fabricInput = document.getElementById('hub-fabric');
+    // Publish New Design Button
+    const btnPublishDesign = document.getElementById('btn-publish-design');
+    if (btnPublishDesign) {
+        btnPublishDesign.addEventListener('click', () => {
+            const titleInput = document.getElementById('post-title');
+            const designerInput = document.getElementById('post-designer');
+            const catInput = document.getElementById('post-category');
+            const priceInput = document.getElementById('post-price');
+            const sizesInput = document.getElementById('post-sizes');
+            const stockInput = document.getElementById('post-stock');
+            const fabricInput = document.getElementById('post-fabric');
 
             const title = titleInput ? titleInput.value.trim() : '';
             const designer = designerInput ? designerInput.value.trim() : 'Vidushi';
             const category = catInput ? catInput.value : 'Haute Couture';
-            const garment = garmentInput ? garmentInput.value : 'eveningGown';
-            const fabric = fabricInput ? fabricInput.value.trim() : 'Bespoke atelier creation';
+            const price = priceInput ? Number(priceInput.value) : 0;
+            const sizesRaw = sizesInput ? sizesInput.value.trim() : 'S, M, L';
+            const stock = stockInput ? stockInput.value : 'Made-to-Order';
+            const fabric = fabricInput ? fabricInput.value.trim() : 'Bespoke hand-crafted creation.';
 
             if (!title) {
                 showToast('Please enter a Design Title');
-                if (titleInput) titleInput.focus();
+                titleInput.focus();
+                return;
+            }
+            if (!price || price <= 0) {
+                showToast('Please enter a valid Price in ₹');
+                priceInput.focus();
                 return;
             }
 
-            const imgToUse = uploadedDataUrl || 'assets/sketch_croquis_1.svg';
+            const imageToUse = uploadedPostImageUrl || 'assets/look1_emerald_velvet_ballgown.jpg';
+            const sizes = sizesRaw.split(',').map(s => s.trim()).filter(Boolean);
 
-            const newEntry = {
-                id: 'des_' + Date.now(),
+            const newProduct = {
+                id: 'prod_' + Date.now(),
                 title,
-                designer: designer || 'Vidushi',
+                designer,
                 category,
-                garment,
-                fabric: fabric || 'Bespoke design',
-                image: imgToUse,
-                likes: 1
+                price,
+                sizes: sizes.length ? sizes : ['Custom'],
+                stock,
+                fabric,
+                image: imageToUse
             };
 
-            const current = getDesigns();
-            current.unshift(newEntry);
-            saveDesigns(current);
+            const catalog = getCatalog();
+            catalog.unshift(newProduct);
+            saveCatalog(catalog);
 
-            renderHub();
-            showToast(`Design "${title}" published to public showcase`);
+            // Re-render shop and highlight
+            renderShop('all');
 
-            if (titleInput) titleInput.value = '';
+            AudioCues.playChime();
+            showToast(`Design "${title}" listed for sale at ₹${price.toLocaleString('en-IN')}! 🎉`);
+
+            // Reset form
+            titleInput.value = '';
+            priceInput.value = '';
             if (fabricInput) fabricInput.value = '';
-            if (previewThumb) {
-                previewThumb.style.display = 'none';
-                previewThumb.src = '';
+            if (postPreviewThumb) {
+                postPreviewThumb.style.display = 'none';
+                postPreviewThumb.src = '';
             }
-            uploadedDataUrl = null;
+            uploadedPostImageUrl = null;
+
+            // Scroll to shop so creator sees the live listed item
+            const shopSec = document.getElementById('shop');
+            if (shopSec) {
+                setTimeout(() => shopSec.scrollIntoView({ behavior: 'smooth' }), 300);
+            }
         });
     }
 
     // ==========================================
     // 5. LIGHTBOX MODAL
     // ==========================================
-    const modal = document.getElementById('lightbox-modal');
-    const modalImg = document.getElementById('lightbox-img');
-    const modalTitle = document.getElementById('lightbox-title');
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
 
     window.openLightbox = (title, src) => {
-        if (modal && modalImg && modalTitle) {
-            modalImg.src = src;
-            modalTitle.innerText = title;
-            modal.classList.add('active');
+        if (lightboxModal && lightboxImg && lightboxTitle) {
+            lightboxImg.src = src;
+            lightboxTitle.innerText = title;
+            lightboxModal.classList.add('active');
         }
     };
 
     window.closeLightbox = () => {
-        if (modal) modal.classList.remove('active');
+        if (lightboxModal) lightboxModal.classList.remove('active');
     };
 
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeLightbox();
+    if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
         });
     }
 
     // ==========================================
-    // 6. CONTACT FORM
+    // 6. BESPOKE CONTACT FORM
     // ==========================================
     const contactForm = document.getElementById('front-contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('cf-name').value;
-            const email = document.getElementById('cf-email').value;
+            const name = document.getElementById('cf-name').value.trim();
+            const email = document.getElementById('cf-email').value.trim();
             const type = document.getElementById('cf-type').value;
 
-            const inq = {
-                id: 'inq_' + Date.now(),
-                date: new Date().toLocaleDateString(),
-                name,
-                email,
-                type
-            };
-
             try {
-                const list = JSON.parse(localStorage.getItem('atelier_vidushi_inquiries') || '[]');
-                list.unshift(inq);
-                localStorage.setItem('atelier_vidushi_inquiries', JSON.stringify(list));
+                const inquiries = JSON.parse(localStorage.getItem('atelier_vidushi_inquiries') || '[]');
+                inquiries.unshift({
+                    id: 'inq_' + Date.now(),
+                    date: new Date().toLocaleDateString('en-IN'),
+                    name,
+                    email,
+                    type
+                });
+                localStorage.setItem('atelier_vidushi_inquiries', JSON.stringify(inquiries));
             } catch (err) {}
 
-            showToast(`Thank you, ${name}. Inquiry sent to Vidushi.`);
+            AudioCues.playChime();
+            showToast(`Thank you, ${name}! Your inquiry has been sent to Vidushi. ✨`);
             contactForm.reset();
         });
     }
 
     // ==========================================
-    // 7. SMOOTH SCROLLING, ACTIVE NAV & MOBILE HAMBURGER
+    // 7. SMOOTH SCROLLING & MOBILE NAV
     // ==========================================
     const mobileNavToggle = document.getElementById('mobile-nav-toggle');
     const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
@@ -497,7 +524,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNavDrawer.classList.toggle('open');
         });
 
-        // Close on clicking links
         document.querySelectorAll('.mobile-nav-item').forEach(item => {
             item.addEventListener('click', () => {
                 mobileNavToggle.classList.remove('open');
@@ -505,7 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close on clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileNavDrawer.contains(e.target) && !mobileNavToggle.contains(e.target)) {
                 mobileNavToggle.classList.remove('open');
@@ -527,9 +552,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Active Navigation on Scroll
     window.addEventListener('scroll', () => {
-        const sections = ['hero', 'all-designs', 'view-3d', 'community-hub', 'contact'];
-        const scrollY = window.pageYOffset + 100;
+        const sections = ['hero', 'shop', 'post-design', 'collections', 'about', 'contact'];
+        const scrollY = window.pageYOffset + 120;
 
         sections.forEach(secId => {
             const sec = document.getElementById(secId);
