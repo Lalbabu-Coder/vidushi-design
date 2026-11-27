@@ -8,7 +8,7 @@
     <!-- Editorial Fashion Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="frontpage.css">
 </head>
@@ -63,8 +63,102 @@
         </div>
     </header>
 
-    <!-- 1. HERO SECTION: VIDUSHI'S PROFILE & DESIGN PHILOSOPHY -->
-    <section class="hero-designer-section" id="hero">
+    <!-- 1. HERO COVER: HAUTE COUTURE FASHION PORTFOLIO COVER (MATCHING EDITORIAL REFERENCE) -->
+    <section class="editorial-cover-hero" id="hero">
+        <!-- Dark Atmospheric Background with Vidushi's Portrait -->
+        <div class="cover-background-stage">
+            <img src="assets/vidushi_editorial_cover.png" alt="Vidushi Haute Couture Fashion Portfolio" class="cover-bg-image">
+            <div class="cover-vignette-overlay"></div>
+        </div>
+
+        <!-- Top Editorial Meta Strip -->
+        <div class="cover-top-meta">
+            <!-- Left: Circular Atelier Seal -->
+            <div class="cover-seal-wrap">
+                <svg class="cover-seal-svg" viewBox="0 0 160 160" width="125" height="125" aria-label="Atelier Vidushi Official Seal">
+                    <circle cx="80" cy="80" r="74" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.5" />
+                    <circle cx="80" cy="80" r="67" fill="none" stroke="rgba(212, 175, 55, 0.75)" stroke-width="1" stroke-dasharray="3,3" />
+                    <circle cx="80" cy="80" r="54" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                    <path id="seal-curve-top" fill="none" d="M 18, 80 A 62,62 0 1,1 142,80 A 62,62 0 1,1 18,80" />
+                    <text font-size="7.5" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="2.8" fill="#ffffff" font-weight="600">
+                        <textPath href="#seal-curve-top" startOffset="50%" text-anchor="middle">
+                            ATELIER VIDUSHI &bull; HAUTE COUTURE &bull; EST. 2026 &bull;
+                        </textPath>
+                    </text>
+                    <!-- Center Monogram -->
+                    <text x="80" y="69" text-anchor="middle" font-size="8.5" fill="#d4af37" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="2" font-weight="700">ATELIER</text>
+                    <text x="80" y="93" text-anchor="middle" font-size="22" fill="#ffffff" font-family="'Bodoni Moda', 'Cormorant Garamond', serif" font-weight="700">V</text>
+                    <text x="80" y="106" text-anchor="middle" font-size="6.5" fill="rgba(255, 255, 255, 0.85)" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="2.5">NEW DELHI</text>
+                </svg>
+            </div>
+
+            <!-- Right: Editorial Header Meta -->
+            <div class="cover-issue-meta">
+                <span class="meta-season">EDITION 2026 &ndash; 2027</span>
+                <span class="meta-tagline">HAUTE COUTURE &bull; MONOGRAPH</span>
+            </div>
+        </div>
+
+        <!-- Center: Iconic PORTFOLIO Title with Nested FASHION & DESIGN -->
+        <div class="cover-center-editorial">
+            <div class="cover-hero-title-group">
+                <div class="editorial-portfolio-title" aria-label="Fashion Portfolio Design">
+                    <!-- Letter P with nested vertical 'FASHION' -->
+                    <span class="editorial-char char-p">
+                        <span class="nested-vert-tag vert-fashion">FASHION</span>
+                        <span class="letter-glyph">P</span>
+                    </span>
+                    <span class="editorial-char"><span class="letter-glyph">O</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">R</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">T</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">F</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">O</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">L</span></span>
+                    <span class="editorial-char"><span class="letter-glyph">I</span></span>
+                    <!-- Letter O with nested vertical 'DESIGN' -->
+                    <span class="editorial-char char-o-end">
+                        <span class="letter-glyph">O</span>
+                        <span class="nested-vert-tag vert-design">DESIGN</span>
+                    </span>
+                </div>
+
+                <!-- Designer Name at Bottom Right (as seen in reference) -->
+                <div class="cover-author-signature">
+                    <span class="author-name">VIDUSHI</span>
+                    <span class="author-title">FOUNDER &bull; HAUTE COUTURI&Egrave;RE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Action Bar & Navigation Shortcuts -->
+        <div class="cover-bottom-nav">
+            <div class="cover-actions-row">
+                <a href="#shop" class="cover-action-btn primary">
+                    <span>🛍️ Shop Boutique (Buy Online)</span>
+                </a>
+                <a href="#post-design" class="cover-action-btn">
+                    <span>➕ Post Your Design</span>
+                </a>
+                <a href="#collections" class="cover-action-btn">
+                    <span>👗 Curated Lookbook</span>
+                </a>
+                <a href="#about" class="cover-action-btn">
+                    <span>📖 About Vidushi</span>
+                </a>
+                <a href="#contact" class="cover-action-btn">
+                    <span>✉️ Bespoke Orders</span>
+                </a>
+            </div>
+
+            <a href="#about" class="cover-scroll-indicator" aria-label="Scroll to discover">
+                <span class="scroll-mouse-icon"></span>
+                <span class="scroll-text">EXPLORE ATELIER &darr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. DESIGNER PROFILE & EDITORIAL STORY -->
+    <section class="section-wrapper hero-designer-section" id="about">
         <div class="hero-split-container">
             <!-- Left: Vidushi's Full Portrait Card (100% Uncropped) -->
             <div class="hero-portrait-col">
@@ -88,7 +182,7 @@
             <!-- Right: Editorial Narrative & Designer Information -->
             <div class="hero-story-col">
                 <span class="story-kicker">Atelier Vidushi &bull; Official Couture House</span>
-                <h1 class="story-headline">VIDUSHI <em>Couture</em></h1>
+                <h2 class="story-headline">VIDUSHI <em>Couture</em></h2>
                 <p class="story-subtitle">Timeless Haute Couture, Royal Heritage Drapes &amp; Bespoke Silhouettes</p>
                 
                 <p class="story-body-text">
@@ -146,10 +240,10 @@
         </div>
     </section>
 
-    <!-- 2. ATELIER BOUTIQUE & SHOP (BUY DESIGNS ONLINE) -->
+    <!-- 3. ATELIER BOUTIQUE & SHOP (BUY DESIGNS ONLINE) -->
     <section class="section-wrapper shop-section" id="shop">
         <div class="section-header-minimal">
-            <span class="section-num">01 / Atelier Store</span>
+            <span class="section-num">02 / Atelier Store</span>
             <h2 class="section-title-serif">Boutique &amp; Buyable Designs</h2>
             <p class="section-subtitle-italic">Explore ready-to-wear couture pieces and made-to-measure orders directly from Vidushi</p>
         </div>
@@ -402,45 +496,7 @@
         </div>
     </section>
 
-    <!-- 5. ABOUT VIDUSHI (DESIGN PHILOSOPHY & STORY) -->
-    <section class="section-wrapper about-section" id="about">
-        <div class="about-grid-clean">
-            <div class="about-portrait-wrap">
-                <img src="assets/vidushi_profile_hd.png" alt="Vidushi Designing in Atelier">
-            </div>
-
-            <div class="about-content-col">
-                <span class="section-num">04 / The Designer</span>
-                <h2 class="section-title-serif">Meet Vidushi</h2>
-                <p class="section-subtitle-italic">Crafting Bespoke Couture with Heart, Grace &amp; Precision</p>
-
-                <div class="about-quote-box">
-                    <p>
-                        "Fashion is not simply about wearing a garment; it is about feeling untouchable, radiant, and truly yourself in every room you enter."
-                    </p>
-                </div>
-
-                <p style="font-size: 14.5px; color: #555555; line-height: 1.8; margin-bottom: 20px;">
-                    Every collection at Atelier Vidushi begins on pure white paper with hand-drawn graphite croquis. Drawing inspiration from royal Indian heritage architecture, floral motifs, and global runway tailoring, Vidushi personally curates the purest mulberry silks, rich velvets, and hand-woven organzas.
-                </p>
-
-                <p style="font-size: 14.5px; color: #555555; line-height: 1.8; margin-bottom: 28px;">
-                    Whether it is a custom bridal lehenga, an architectural power blazer, or an ethereal red-carpet evening gown, each silhouette is tailored to the client's individual measurements, ensuring bespoke luxury that lasts a lifetime.
-                </p>
-
-                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                    <a href="#shop" class="hero-btn primary" style="padding: 12px 20px;">
-                        <span>🛍️ Browse Store</span>
-                    </a>
-                    <a href="#contact" class="hero-btn secondary" style="padding: 12px 20px;">
-                        <span>Book Private Fitting &rarr;</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. CONTACT / BESPOKE ORDERS -->
+    <!-- 5. CONTACT / BESPOKE ORDERS -->
     <section class="section-wrapper contact-section-clean" id="contact">
         <div class="section-header-minimal">
             <span class="section-num">05 / Bespoke Commissions</span>

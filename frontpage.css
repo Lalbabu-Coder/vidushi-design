@@ -65,10 +65,10 @@ body {
     left: 0;
     width: 100%;
     height: 74px;
-    background: rgba(251, 251, 250, 0.94);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border-color);
+    background: rgba(13, 12, 10, 0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -95,14 +95,14 @@ body {
     font-size: 24px;
     letter-spacing: 0.22em;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #ffffff;
     text-transform: uppercase;
 }
 
 .brand-tagline {
     font-size: 9px;
     letter-spacing: 0.25em;
-    color: var(--text-muted);
+    color: var(--gold-primary);
     text-transform: uppercase;
     margin-top: -2px;
 }
@@ -116,7 +116,7 @@ body {
 
 .nav-item a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: #c9c5bd;
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -128,12 +128,12 @@ body {
 
 .nav-item a:hover,
 .nav-item a.active {
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .nav-badge-inline {
-    background: #111111;
-    color: #ffffff;
+    background: var(--gold-primary);
+    color: #111111;
     font-size: 8.5px;
     padding: 2px 7px;
     border-radius: var(--radius-full);
@@ -149,7 +149,7 @@ body {
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--text-primary);
+    background: var(--gold-primary);
     transition: var(--transition);
 }
 
@@ -166,13 +166,13 @@ body {
 
 .nav-action-btn {
     text-decoration: none;
-    background: #111111;
-    color: #ffffff;
+    background: var(--gold-primary);
+    color: #111111;
     padding: 10px 22px;
     font-size: 10.5px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     transition: var(--transition);
     border-radius: var(--radius-sm);
     display: inline-flex;
@@ -181,9 +181,9 @@ body {
 }
 
 .nav-action-btn:hover {
-    background: #333333;
+    background: #e8c85c;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
 /* Mobile Hamburger Toggle */
@@ -203,7 +203,7 @@ body {
 .hamburger-bar {
     width: 100%;
     height: 2px;
-    background-color: var(--text-primary);
+    background-color: #ffffff;
     border-radius: 2px;
     transition: var(--transition);
 }
@@ -224,12 +224,12 @@ body {
     top: 74px;
     left: 0;
     width: 100vw;
-    background: rgba(251, 251, 250, 0.98);
+    background: rgba(13, 12, 10, 0.98);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 24px 20px;
     z-index: 999;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
     transform: translateY(-120%);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -249,22 +249,320 @@ body {
     font-size: 13px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-primary);
+    color: #e5e2db;
     text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-weight: 500;
 }
 
+.mobile-nav-item.active,
+.mobile-nav-item:hover {
+    color: var(--gold-primary);
+}
+
 .mobile-cta-item {
-    background: #111111;
-    color: #ffffff !important;
+    background: var(--gold-primary);
+    color: #111111 !important;
     text-align: center;
     padding: 14px 20px;
-    margin-top: 8px;
+    margin-top: 10px;
     border: none;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   0. HAUTE COUTURE EDITORIAL COVER HERO (MAGAZINE COVER LIKE REFERENCE)
+   ========================================================================== */
+
+.editorial-cover-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #0d0c0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 110px 48px 44px;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Background Atmosphere with Vidushi's Portrait */
+.cover-background-stage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cover-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-cover-hero:hover .cover-bg-image {
+    transform: scale(1.04);
+}
+
+.cover-vignette-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 42%, rgba(13, 12, 10, 0.08) 0%, rgba(13, 12, 10, 0.5) 58%, rgba(13, 12, 10, 0.94) 100%),
+                linear-gradient(180deg, rgba(13, 12, 10, 0.7) 0%, transparent 25%, transparent 75%, rgba(13, 12, 10, 0.9) 100%);
+    pointer-events: none;
+}
+
+/* Top Editorial Metadata & Circular Seal */
+.cover-top-meta {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1540px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cover-seal-wrap {
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8));
+    transition: transform 0.4s ease;
+}
+
+.cover-seal-wrap:hover {
+    transform: scale(1.05) rotate(4deg);
+}
+
+.cover-issue-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.meta-season {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.meta-tagline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.25em;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+/* Center Editorial Title Over Vidushi */
+.cover-center-editorial {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1540px;
+    margin: 20px auto 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.cover-hero-title-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.editorial-portfolio-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: clamp(44px, 10.8vw, 155px);
+    line-height: 0.92;
+    letter-spacing: clamp(1px, 0.75vw, 12px);
+    text-transform: uppercase;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 10px 50px rgba(0, 0, 0, 0.85);
+    user-select: none;
+}
+
+.editorial-char {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.letter-glyph {
+    display: inline-block;
+}
+
+/* Nested 'FASHION' inside letter P */
+.char-p {
+    position: relative;
+}
+
+.vert-fashion {
+    position: absolute;
+    left: clamp(4px, 1.1vw, 18px);
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(6px, 1.1vw, 14px);
+    font-weight: 800;
+    letter-spacing: 0.32em;
+    color: #ffffff;
+    opacity: 0.96;
+    pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    white-space: nowrap;
+}
+
+/* Nested 'DESIGN' inside letter O */
+.char-o-end {
+    position: relative;
+}
+
+.vert-design {
+    position: absolute;
+    right: clamp(4px, 1.1vw, 18px);
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(6px, 1.1vw, 14px);
+    font-weight: 800;
+    letter-spacing: 0.32em;
+    color: #ffffff;
+    opacity: 0.96;
+    pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    white-space: nowrap;
+}
+
+/* Designer Signature in Bottom Right */
+.cover-author-signature {
+    text-align: right;
+    margin-top: clamp(8px, 1.5vw, 18px);
+    padding-right: clamp(10px, 3.5vw, 60px);
+}
+
+.author-name {
+    font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.6vw, 48px);
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+    display: block;
+}
+
+.author-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(8.5px, 1vw, 12px);
+    letter-spacing: 0.28em;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+    display: block;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Bottom Action Navigation */
+.cover-bottom-nav {
+    position: relative;
+    z-index: 5;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.cover-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.cover-action-btn {
+    text-decoration: none;
+    padding: 12px 24px;
+    background: rgba(26, 24, 21, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: var(--transition);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cover-action-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+    color: #ffffff;
+}
+
+.cover-action-btn.primary {
+    background: var(--gold-primary);
+    color: #111111;
+    font-weight: 700;
+    border-color: var(--gold-primary);
+}
+
+.cover-action-btn.primary:hover {
+    background: #e8c85c;
+    color: #000000;
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+}
+
+.cover-scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9.5px;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.cover-scroll-indicator:hover {
+    color: var(--gold-primary);
+    transform: translateY(3px);
 }
 
 /* ==========================================================================
@@ -1425,6 +1723,58 @@ body {
     .desktop-nav, .desktop-only { display: none !important; }
     .mobile-nav-toggle { display: flex !important; }
     .mobile-nav-drawer { top: 60px; }
+    
+    /* Cover Hero Mobile */
+    .editorial-cover-hero {
+        padding: 85px 16px 28px;
+        min-height: 100svh;
+        justify-content: space-around;
+    }
+    .cover-seal-svg {
+        width: 85px;
+        height: 85px;
+    }
+    .meta-season {
+        font-size: 10px;
+        letter-spacing: 0.25em;
+    }
+    .meta-tagline {
+        font-size: 8px;
+    }
+    .cover-center-editorial {
+        margin: 10px auto;
+    }
+    .editorial-portfolio-title {
+        font-size: clamp(34px, 9.5vw, 56px);
+        letter-spacing: 1.5px;
+    }
+    .vert-fashion, .vert-design {
+        font-size: 5.5px;
+        letter-spacing: 0.15em;
+    }
+    .cover-author-signature {
+        padding-right: 10px;
+        margin-top: 6px;
+    }
+    .author-name {
+        font-size: 22px;
+        letter-spacing: 0.25em;
+    }
+    .author-title {
+        font-size: 8px;
+    }
+    .cover-actions-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 300px;
+        gap: 8px;
+    }
+    .cover-action-btn {
+        padding: 10px 18px;
+        font-size: 10px;
+        justify-content: center;
+    }
     
     .hero-designer-section { padding: 80px 16px 50px; min-height: auto; }
     .portrait-frame-card { padding: 10px; border-radius: 16px; }
